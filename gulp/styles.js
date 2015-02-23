@@ -14,8 +14,8 @@ gulp.task('styles', function () {
 
   var injectFiles = gulp.src([
     paths.src + '/**/*.scss',
-    '!' + paths.src + '/app/index.scss',
-    '!' + paths.src + '/app/vendor.scss'
+    '!' + paths.src + '/index.scss',
+    '!' + paths.src + '/vendor.scss'
   ], { read: false });
 
   var injectOptions = {
@@ -34,8 +34,8 @@ gulp.task('styles', function () {
   var indexFilter = $.filter('index.scss');
 
   return gulp.src([
-    paths.src + '/app/index.scss',
-    paths.src + '/app/vendor.scss'
+    paths.src + '/index.scss',
+    paths.src + '/vendor.scss'
   ])
     .pipe(indexFilter)
     .pipe($.inject(injectFiles, injectOptions))
