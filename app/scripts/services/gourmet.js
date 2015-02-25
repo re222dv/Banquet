@@ -28,6 +28,10 @@ class Gourmet {
   placesNear(lat, long, query) {
     return this.get(`/places?query=${query}&location=${lat},${long}`);
   }
+
+  place(id) {
+    return this.get(`/places/${id}`);
+  }
 }
 
 export default angular.module('gourmet', [])

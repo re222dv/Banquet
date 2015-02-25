@@ -1,3 +1,24 @@
 nerby-places {
-  
+  > a {
+    color: rgba(0,0,0,0.87);
+    text-decoration: none;
+
+    > md-card {
+      position: relative;
+
+      > h2 {
+        margin-top: 0;
+      }
+
+      > [hero-id="rating"] {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+      }
+
+      > p {
+        margin: 0;
+      }
+    }
+  }
 }

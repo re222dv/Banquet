@@ -1,5 +1,6 @@
 'use strict';
 
+import HeroOnClick from '../../scripts/directives/hero-on-click.js';
 import Gourmet from '../../scripts/services/gourmet.js';
 
 class NerbyPlaces {
@@ -20,12 +21,17 @@ class NerbyPlaces {
   }
 
   filter() {
-    return this.gourmet.placesNear(this.latitude,this.longitude, this.search)
+    if (!this.latitude || !this.longitude) return;
+
+    return this.gourmet.placesNear(this.latitude, this.longitude, this.search)
       .then(places => this.places = places);
   }
 }
 
-export default angular.module('nerbyPlaces', ['ngMaterial', 'rx', Gourmet.name])
+export default angular.module('nerbyPlaces', [
+  'ngMaterial', 'rx', 'ui.router',
+  Gourmet.name, HeroOnClick.name
+])
 	.directive('nerbyPlaces', function() {
 		return {
 			templateUrl: 'components/nerby-places/nerby-places.html',
