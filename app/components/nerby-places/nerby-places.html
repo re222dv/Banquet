@@ -1,7 +1,7 @@
 <md-autocomplete md-items="item in []" md-search-text="ctrl.search" placeholder="Search">
 </md-autocomplete>
 
-<a ng-repeat="place in ctrl.places" ui-sref="place({id: place.id})">
+<a class="animate-list" ng-repeat="place in ctrl.places track by place.id" ui-sref="place({id: place.id})">
   <md-card hero-on-click>
     <h2 hero-id="name">{{place.name}}</h2>
     <span hero-id="rating">{{place.rating | number : 1}}</span>

@@ -21,7 +21,7 @@ class NerbyPlaces {
   }
 
   filter() {
-    if (!this.latitude || !this.longitude) return;
+    if (!this.latitude || !this.longitude) { return; }
 
     return this.gourmet.placesNear(this.latitude, this.longitude, this.search)
       .then(places => this.places = places);

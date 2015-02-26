@@ -5,28 +5,5 @@ place-detail {
   ul {
     padding: 0;
     list-style: none;
-
-    &.loading > li {
-      margin-top: 100vh;
-    }
-
-    > li {
-      margin-top: 0;
-
-      -webkit-transition: margin-top ease-out .3s;
-      transition: margin-top ease-out .3s;
-    }
   }
-}
-
-.page-transition.ng-enter place-detail ul {
-  -webkit-transition: transform ease-in-out .5s;
-  transition: transform ease-in-out .5s;
-
-  -webkit-transform: translateY(100vh);
-  transform: translateY(100vh);
-}
-.page-transition.ng-enter.ng-enter-active place-detail ul {
-  -webkit-transform: none;
-  transform: none;
 }

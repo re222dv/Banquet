@@ -25,7 +25,7 @@ class Gourmet {
       });
   }
 
-  placesNear(lat, long, query) {
+  placesNear(lat, long, query = '') {
     return this.get(`/places?query=${query}&location=${lat},${long}`);
   }
 

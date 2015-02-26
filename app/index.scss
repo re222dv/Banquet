@@ -1,24 +1,36 @@
 md-card {
   padding: 8px;
+  background-color: #ffffff;
 }
+
+// Workaround for issue in Chrome where an item inside a flexbox can't have a height of 100%
+// https://code.google.com/p/chromium/issues/detail?id=346275
+.content {
+  display: block;
+  height: calc(100vh - 64px);
+
+  ui-view {
+    display: block;
+    height: calc(100vh - 64px);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+//.active {
+//  display: inline-block;
+//}
 
 // All other scss files will be injcted here
 // injector
 // endinjector
 
-.content {
-  position: relative;
-
-  ui-view {
-    width: 100%;
-    height: 100%;
-  }
-}
-
 ///* Basic page transition */
 .page-transition.ng-enter, .page-transition.ng-leave {
-  -webkit-transition: opacity ease-in-out .3s, width 2s;
-  transition: opacity ease-in-out .3s, width 2s;
+  -webkit-transition: opacity ease-in-out .3s, width 92s;
+  transition: opacity ease-in-out .3s, width 92s;
   position: absolute;
   top: 0;
   right: 0;

@@ -1,0 +1,47 @@
+.animate-list {
+  display: block;
+//  line-height:40px;
+//  list-style:none;
+//  box-sizing:border-box;
+}
+
+.animate-list.ng-enter-stagger,
+.animate-list.ng-leave-stagger {
+  -webkit-transition-delay: 20ms;
+  transition-delay: 20ms;
+}
+
+.animate-list.ng-enter,
+.animate-list.ng-leave {
+  -webkit-transition: margin-top ease-out .3s, opacity ease-out .3s;
+  transition: margin-top ease-out .3s, opacity ease-out .3s;
+}
+
+.animate-list.ng-leave.ng-leave-active,
+.animate-list.ng-enter {
+  margin-top: 30vh;
+  opacity: 0;
+}
+
+.animate-list.ng-leave,
+.animate-list.ng-enter.ng-enter-active {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.animate-list.ng-leave {
+  height: 0;
+  overflow: visible;
+}
+
+.animate-list.ng-move {
+  -webkit-transition: max-height ease-in-out .3s, opacity ease-out .3s;
+  transition: max-height ease-in-out .3s, opacity ease-out .3s;
+  max-height: 0;
+  opacity: 0;
+}
+
+.animate-list.ng-move.ng-move-active {
+  max-height: 100px;
+  opacity: 1;
+}

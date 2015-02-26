@@ -5,8 +5,8 @@
 
 <span>{{ctrl.place.street}} {{ctrl.place.city}}</span>
 
-<ul ng-class="{loading: ctrl.place.reviews == null}">
-  <li ng-repeat="review in ctrl.place.reviews">
+<ul>
+  <li class="animate-list" ng-repeat="review in ctrl.place.reviews">
     <md-divider></md-divider>
 
     <p>{{review.description}}</p>
