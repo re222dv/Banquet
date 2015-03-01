@@ -1,5 +1,7 @@
 'use strict';
 
+import FabHeroTransition from '../fab-hero-transition/fab-hero-transition.js';
+
 class PlaceDetail {
 	constructor(gourmet) {
     this.place = {
@@ -10,11 +12,14 @@ class PlaceDetail {
       street: ' ',
     };
     gourmet.place(this.id)
-      .then(place => this.place = place);
+      .then(place => {
+        this.place = place;
+        this.places = [place];
+      });
   }
 }
 
-export default angular.module('placeDetail', ['yaru22.angular-timeago'])
+export default angular.module('placeDetail', ['yaru22.angular-timeago', FabHeroTransition.name])
 	.directive('placeDetail', function() {
 		return {
 			templateUrl: 'components/place-detail/place-detail.html',

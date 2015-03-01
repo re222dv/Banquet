@@ -19,18 +19,14 @@ md-card {
   display: none;
 }
 
-//.active {
-//  display: inline-block;
-//}
-
-// All other scss files will be injcted here
+// All other scss files will be injected here
 // injector
 // endinjector
 
-///* Basic page transition */
+// Basic page transition, fades out the old page and fades in the new
 .page-transition.ng-enter, .page-transition.ng-leave {
-  -webkit-transition: opacity ease-in-out .3s, width 92s;
-  transition: opacity ease-in-out .3s, width 92s;
+  -webkit-transition: opacity ease-in-out .3s;
+  transition: opacity ease-in-out .3s;
   position: absolute;
   top: 0;
   right: 0;
@@ -45,7 +41,7 @@ md-card {
   z-index: 9999;
 }
 
-
+// Hero transition, animate all properties from the odl to the new position
 .hero-transition.hero-leave {
   visibility: hidden;
 }

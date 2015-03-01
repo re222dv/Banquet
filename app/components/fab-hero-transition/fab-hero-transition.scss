@@ -1,0 +1,118 @@
+@keyframes fab-hero-transition {
+  from {
+    right: 20px;
+    bottom: 20px;
+
+    width: 56px;
+    height: 56px;
+
+    border-radius: 50%;
+
+    transform: translate(0, 0);
+  }
+
+  50% {
+    right: 50%;
+    bottom: 50%;
+
+    transform: translate(50%, 50%);
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+  }
+
+  90% {
+    border-radius: 50%;
+  }
+
+  to {
+    right: 50%;
+    bottom: 50%;
+
+    width: 100vmax;
+    height: 100vmax;
+
+    border-radius: 0;
+
+    transform: translate(50%, 50%);
+  }
+}
+
+fab-hero-transition {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  > .md-fab {
+    margin: auto;
+    pointer-events: all;
+  }
+
+  > .animate-fab {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    pointer-events: all;
+  }
+
+  > .animate-fab.ng-enter {
+    animation: fab-hero-transition .5s ease-in-out reverse;
+  }
+
+  > .animate-fab.ng-leave {
+    animation: fab-hero-transition .5s ease-in-out;
+  }
+
+  > ng-transclude {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    z-index: 20; // Above FAB
+
+    overflow: hidden;
+    transition: opacity .3s, border-radius .3s;
+
+    pointer-events: all;
+  }
+
+  > .animate-content.ng-hide {
+    opacity: 0;
+    border-radius: 2%;
+  }
+
+  > .md-fab.md-button.animate-close-fab.md-fab-bottom-right,
+  > .md-fab.md-button.animate-close-fab.md-fab-bottom-right:hover,
+  > .md-fab.md-button.animate-close-fab.md-fab-bottom-right:focus {
+    background-color: #008000;
+  }
+
+  > .animate-close-fab {
+    transform: scale(1);
+  }
+
+  > .animate-close-fab.ng-hide {
+    transform: scale(0);
+  }
+
+  > .animate-close-fab.ng-hide-add {
+    transition: transform .5s ease-in;
+  }
+
+  > .animate-close-fab.ng-hide-remove {
+    transition: transform .5s ease-out;
+  }
+}

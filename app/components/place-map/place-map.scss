@@ -1,0 +1,15 @@
+place-map {
+  display: block;
+  height: 100%;
+
+  ui-gmap-google-map {
+    display: block;
+    height: 100%;
+
+    > div {
+      height: 100%;
+
+      > div { height: 100%; }
+    }
+  }
+}
