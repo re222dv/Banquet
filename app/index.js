@@ -3,7 +3,6 @@
 import NerbyPlaces from './components/nerby-places/nerby-places.js';
 import PlaceDetail from './components/place-detail/place-detail.js';
 import PlaceMap from './components/place-map/place-map.js';
-import ViewIndex from './components/view-index/view-index.js';
 
 // 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'ngMaterial',
 angular.module('banquet', [

@@ -1,5 +1,7 @@
 @keyframes fab-hero-transition {
   from {
+    top: auto;
+    left: auto;
     right: 20px;
     bottom: 20px;
 
@@ -23,11 +25,13 @@
     border-radius: 50%;
   }
 
-  90% {
+  87% {
     border-radius: 50%;
   }
 
   to {
+    top: auto;
+    left: auto;
     right: 50%;
     bottom: 50%;
 
@@ -52,29 +56,69 @@ fab-hero-transition {
   pointer-events: none;
 
   > .md-fab {
-    margin: auto;
     pointer-events: all;
   }
 
-  > .animate-fab {
+  > .md-button.md-fab.animate-fab {
     position: absolute;
-    width: 100%;
-    height: 100%;
     overflow: hidden;
 
-    pointer-events: all;
+    transition: color .3s;
+
+    &.open {
+      top: auto;
+      left: auto;
+      right: 50%;
+      bottom: 50%;
+
+      width: 100vmax;
+      height: 100vmax;
+
+      border-radius: 0;
+
+      pointer-events: none;
+      transform: translate(50%, 50%);
+
+      &, &:focus, &:hover {
+        color: transparent !important;
+      }
+    }
+
+    &.open-add {
+      top: auto;
+      left: auto;
+      right: 20px;
+      bottom: 20px;
+
+      width: 56px;
+      height: 56px;
+
+      border-radius: 50%;
+
+      transform: translate(0, 0);
+
+      animation: fab-hero-transition .5s .1s ease-in-out;
+    }
+
+    &.open-remove {
+      top: auto;
+      left: auto;
+      right: 50%;
+      bottom: 50%;
+
+      width: 100vmax;
+      height: 100vmax;
+
+      border-radius: 0;
+
+      transform: translate(50%, 50%);
+
+      animation: fab-hero-transition .4s .1s ease-in-out reverse;
+      transition-delay: .3s;
+    }
   }
 
-  > .animate-fab.ng-enter {
-    animation: fab-hero-transition .5s ease-in-out reverse;
-  }
-
-  > .animate-fab.ng-leave {
-    animation: fab-hero-transition .5s ease-in-out;
-  }
-
-  > ng-transclude {
-    display: block;
+  > .animate-content {
     position: absolute;
     top: 0;
     left: 0;
@@ -83,36 +127,33 @@ fab-hero-transition {
     height: 100%;
     z-index: 20; // Above FAB
 
-    overflow: hidden;
-    transition: opacity .3s, border-radius .3s;
-
-    pointer-events: all;
-  }
-
-  > .animate-content.ng-hide {
     opacity: 0;
-    border-radius: 2%;
+    overflow: hidden;
+
+    pointer-events: none;
+    transition: opacity .3s;
+
+    &.open {
+      opacity: 1;
+      border-radius: 0;
+
+      pointer-events: all;
+    }
   }
 
-  > .md-fab.md-button.animate-close-fab.md-fab-bottom-right,
-  > .md-fab.md-button.animate-close-fab.md-fab-bottom-right:hover,
-  > .md-fab.md-button.animate-close-fab.md-fab-bottom-right:focus {
+  > #close-fab {
     background-color: #008000;
-  }
 
-  > .animate-close-fab {
-    transform: scale(1);
-  }
+    transform: translate3d(0, 0, 0) scale(1);
+    transition: transform .2s ease-in;
 
-  > .animate-close-fab.ng-hide {
-    transform: scale(0);
-  }
+    &.ng-hide {
+      pointer-events: none;
+      transform: translate3d(0, 0, 0) scale(0);
 
-  > .animate-close-fab.ng-hide-add {
-    transition: transform .5s ease-in;
-  }
-
-  > .animate-close-fab.ng-hide-remove {
-    transition: transform .5s ease-out;
+      &.ng-hide-remove-active {
+        transition-timing-function: ease-out;
+      }
+    }
   }
 }

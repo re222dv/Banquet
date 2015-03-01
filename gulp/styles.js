@@ -20,10 +20,6 @@ gulp.task('styles', function () {
 
   var injectOptions = {
     transform: function(filePath) {
-      console.log(filePath);
-      //filePath = filePath.replace(paths.src + '/app/', '');
-      //filePath = filePath.replace(paths.src + '/components/', '../components/');
-      console.warn(filePath);
       return '@import \'' + filePath + '\';';
     },
     starttag: '// injector',
