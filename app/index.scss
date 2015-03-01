@@ -3,6 +3,10 @@ md-card {
   background-color: #ffffff;
 }
 
+md-content {
+  max-height: 100%;
+}
+
 // Workaround for issue in Chrome where an item inside a flexbox can't have a height of 100%
 // https://code.google.com/p/chromium/issues/detail?id=346275
 .content {

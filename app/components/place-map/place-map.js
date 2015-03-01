@@ -13,8 +13,6 @@ class PlaceMap {
       if (!this.map || !opened) return;
       window.google.maps.event.trigger(this.map, 'resize')
     });
-
-    console.log(this.opened);
   }
 }
 

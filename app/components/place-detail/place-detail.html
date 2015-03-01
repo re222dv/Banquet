@@ -1,21 +1,23 @@
-<h2 class="hero" hero-id="name">{{ctrl.place.name}}</h2>
+<md-content>
+  <h2 class="hero" hero-id="name">{{ctrl.place.name}}</h2>
 
-<span class="hero" hero-id="rating">{{ctrl.place.rating | number : 1}}</span>
-<p class="hero" hero-id="description">{{ctrl.place.description}}</p>
+  <span class="hero" hero-id="rating">{{ctrl.place.rating | number : 1}}</span>
+  <p class="hero" hero-id="description">{{ctrl.place.description}}</p>
 
-<span>{{ctrl.place.street}} {{ctrl.place.city}}</span>
+  <span>{{ctrl.place.street}} {{ctrl.place.city}}</span>
 
-<ul>
-  <li class="animate-list" ng-repeat="review in ctrl.place.reviews">
-    <md-divider></md-divider>
+  <ul>
+    <li class="animate-list" ng-repeat="review in ctrl.place.reviews">
+      <md-divider></md-divider>
 
-    <p>{{review.description}}</p>
+      <p>{{review.description}}</p>
 
-    <span>{{review.user.name}}</span>
-    <span>{{review.rating}}</span>
-    <span>{{review.created_at | timeAgo}}</span>
-  </li>
-</ul>
+      <span>{{review.user.name}}</span>
+      <span>{{review.rating}}</span>
+      <span>{{review.created_at | timeAgo}}</span>
+    </li>
+  </ul>
+</md-content>
 
 <fab-hero-transition label="map" icon="maps:map" opened="ctrl.mapOpened">
   <place-map places="ctrl.places" opened="ctrl.mapOpened"></place-map>

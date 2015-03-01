@@ -4,13 +4,11 @@
 
 .animate-list.ng-enter-stagger,
 .animate-list.ng-leave-stagger {
-  -webkit-transition-delay: 20ms;
   transition-delay: 20ms;
 }
 
 .animate-list.ng-enter,
 .animate-list.ng-leave {
-  -webkit-transition: margin-top ease-out .3s, opacity ease-out .3s;
   transition: margin-top ease-out .3s, opacity ease-out .3s;
 }
 
