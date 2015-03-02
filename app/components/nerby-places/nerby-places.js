@@ -44,7 +44,6 @@ export default angular.module('nerbyPlaces', [
 				// = Two way data binding
 				// @ One way incoming expression (like placeholder)
 				// & One way outgoing behaviour (like ng-click)
-        test: '@'
 			},
 			bindToController: true,
 			controller: NerbyPlaces ,

@@ -1,18 +1,20 @@
 'use strict';
 /*jshint esnext: true */
+import MenuItem from './components/menu-item/menu-item.js';
 import NerbyPlaces from './components/nerby-places/nerby-places.js';
 import PlaceDetail from './components/place-detail/place-detail.js';
+import PaperLayout from './components/paper-layout/paper-layout.js';
 import PlaceMap from './components/place-map/place-map.js';
 
 // 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'ngMaterial',
 angular.module('banquet', [
   'ui.router', 'ngMaterial', 'alAngularHero',
-  NerbyPlaces.name, PlaceDetail.name, PlaceMap.name
+  MenuItem.name, NerbyPlaces.name, PlaceDetail.name, PaperLayout.name, PlaceMap.name
 ])
   //.controller('MainCtrl', MainCtrl)
   .config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
-      .primaryPalette('brown')
+      .primaryPalette('teal')
       .accentPalette('pink');
   })
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -23,6 +25,10 @@ angular.module('banquet', [
         controller: function ($scope, $stateParams) {
           $scope.id = $stateParams.id;
         }
+      })
+      .state('reviews', {
+        url: '/reviews',
+        template: '<nerby-places layout-fill></nerby-places>'
       })
       .state('home', {
         url: '/',

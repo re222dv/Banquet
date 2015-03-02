@@ -1,22 +1,52 @@
-md-card {
-  padding: 8px;
-  background-color: #ffffff;
+.display-1 {
+  margin: 8px;
+
+  font-size: 34px;
+  font-weight: 300;
 }
 
-md-content {
-  max-height: 100%;
+.headline {
+  margin: 8px;
+
+  font-size: 24px;
+  font-weight: 300;
 }
 
-// Workaround for issue in Chrome where an item inside a flexbox can't have a height of 100%
-// https://code.google.com/p/chromium/issues/detail?id=346275
-.content {
-  display: block;
-  height: calc(100vh - 64px);
+md-autocomplete {
+  z-index: 5;
+  background-color: #525c64;
 
-  ui-view {
-    display: block;
-    height: calc(100vh - 64px);
+  input {
+    color: rgba(255, 255, 255, 0.87);
   }
+}
+
+.md-button {
+  padding: 8px;
+}
+
+md-card {
+  margin: 16px;
+  padding: 8px;
+
+  max-width: 600px;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #525c64;
+
+  md-toolbar[layout] {
+    position: relative;
+    box-sizing: content-box;
+    margin: 8px -8px -8px -8px;
+    padding: 8px;
+  }
+}
+
+md-content.md-default-theme {
+  max-height: 100%;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #374046;
 }
 
 .hidden {
@@ -61,4 +91,10 @@ md-content {
   transition: all ease-in-out .25s;
   position: absolute;
   z-index: 10000;
+}
+
+@media (max-width: 960px) {
+  md-autocomplete input {
+    padding-left: 40px;
+  }
 }

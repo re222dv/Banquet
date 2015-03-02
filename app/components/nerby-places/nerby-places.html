@@ -1,12 +1,18 @@
 <md-content>
-  <md-autocomplete md-items="item in []" md-search-text="ctrl.search" placeholder="Search">
+  <md-autocomplete class="md-whiteframe-z2" md-items="item in []"
+                   md-search-text="ctrl.search" placeholder="Search">
   </md-autocomplete>
 
   <a class="animate-list" ng-repeat="place in ctrl.places track by place.id" ui-sref="place({id: place.id})">
     <md-card hero-on-click>
-      <h2 hero-id="name">{{place.name}}</h2>
-      <span hero-id="rating">{{place.rating | number : 1}}</span>
       <p hero-id="description">{{place.description}}</p>
+      <md-toolbar hero-id="display" layout="row" layout-align="start center" class="md-bg-primary">
+        <h2 class="headline" hero-id="name" flex>{{place.name}}</h2>
+        <div hero-id="rating" layout="row" layout-align="center center">
+          <paper-icon icon="toggle:star"></paper-icon>
+          <span>{{place.rating | number : 1}}</span>
+        </div>
+      </md-toolbar>
     </md-card>
   </a>
 </md-content>

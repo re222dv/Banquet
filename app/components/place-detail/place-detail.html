@@ -1,7 +1,15 @@
-<md-content>
-  <h2 class="hero" hero-id="name">{{ctrl.place.name}}</h2>
-
-  <span class="hero" hero-id="rating">{{ctrl.place.rating | number : 1}}</span>
+<md-content class="md-padding">
+  <md-toolbar hero-id="display" class="hero md-bg-primary md-tall" layout="column">
+    <span flex></span>
+    <div layout="row" layout-align="start center">
+      <h2 class="hero display-1" hero-id="name" flex>{{ctrl.place.name}}</h2>
+      <div hero-id="rating" layout="row" layout-align="center center">
+        <paper-icon icon="toggle:star"></paper-icon>
+        <span>{{ctrl.place.rating | number : 1}}</span>
+      </div>
+    </div>
+  </md-toolbar>
+  <div class="spacer"></div>
   <p class="hero" hero-id="description">{{ctrl.place.description}}</p>
 
   <span>{{ctrl.place.street}} {{ctrl.place.city}}</span>

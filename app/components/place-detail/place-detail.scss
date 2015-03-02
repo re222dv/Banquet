@@ -1,5 +1,23 @@
 place-detail > md-content {
-  padding: 8px;
+  > md-toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    padding: 16px 16px 8px;
+
+    h2.display-1 {
+      margin: 0;
+    }
+
+    [hero-id="rating"] > span {
+      padding-left: 8px;
+    }
+  }
+
+  .spacer {
+    height: 128px;
+  }
 
   > ul {
     padding: 0;

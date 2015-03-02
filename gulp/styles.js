@@ -37,8 +37,11 @@ gulp.task('styles', function () {
     .pipe($.inject(injectFiles, injectOptions))
     .pipe(indexFilter.restore())
     .pipe($.sass(sassOptions))
-
-  .pipe($.autoprefixer())
+    .on('error', function handleError(err) {
+      console.error(err.toString());
+      this.emit('end');
+    })
+    .pipe($.autoprefixer())
     .on('error', function handleError(err) {
       console.error(err.toString());
       this.emit('end');

@@ -10,8 +10,8 @@ class PlaceMap {
     };
 
     $scope.$watch('ctrl.opened', (opened) => {
-      if (!this.map || !opened) return;
-      window.google.maps.event.trigger(this.map, 'resize')
+      if (!this.map || !opened) { return; }
+      window.google.maps.event.trigger(this.map, 'resize');
     });
   }
 }

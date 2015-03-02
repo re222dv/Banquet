@@ -1,0 +1,28 @@
+<div layout="row">
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2"
+              md-component-id="left" md-is-locked-open="$media('gt-md')"
+              layout="column">
+    <md-toolbar class="user">
+      <md-button layout-fill>
+        <paper-icon icon="social:person"></paper-icon>
+        Sign in
+      </md-button>
+    </md-toolbar>
+    <md-list flex>
+      <menu-item route="home">
+        Nerby Places
+      </menu-item>
+      <menu-item route="reviews">
+        Latest Reviews
+      </menu-item>
+    </md-list>
+  </md-sidenav>
+  <div class="content" layout-fill>
+    <md-button ng-click="ctrl.toggle('left')" aria-label="Menu" hide-gt-md>
+      <paper-icon icon="navigation:menu"></paper-icon>
+    </md-button>
+    <md-content layout-fill>
+      <ui-view class="page-transition hero-transition"></ui-view>
+    </md-content>
+  </div>
+</div>

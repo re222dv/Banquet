@@ -1,23 +1,39 @@
 nerby-places {
-  > md-content > a {
-    color: rgba(0,0,0,0.87);
-    text-decoration: none;
+  > md-content {
+    padding-top: 40px;
 
-    > md-card {
-      position: relative;
+    > md-autocomplete {
+      position: fixed;
+      top: 0;
 
-      > h2 {
+      width: 100%;
+    }
+
+    > a {
+      margin: 0 auto;
+      max-width: 600px;
+
+      color: rgba(255, 255, 255, 0.87);
+      text-decoration: none;
+
+      > md-card {
+        position: relative;
+
+        > h2 {
+          margin-top: 0;
+        }
+
+        > md-toolbar > [hero-id="rating"] > span {
+            padding-left: 8px;
+        }
+
+        > p {
+          margin: 8px;
+        }
+      }
+
+      & + a > md-card {
         margin-top: 0;
-      }
-
-      > [hero-id="rating"] {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-      }
-
-      > p {
-        margin: 0;
       }
     }
   }

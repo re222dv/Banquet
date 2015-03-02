@@ -30,7 +30,6 @@
 }
 
 .animate-list.ng-move {
-  -webkit-transition: max-height ease-in-out .3s, opacity ease-out .3s;
   transition: max-height ease-in-out .3s, opacity ease-out .3s;
   max-height: 0;
   opacity: 0;

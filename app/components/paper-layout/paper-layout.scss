@@ -1,0 +1,43 @@
+paper-layout {
+  display: block;
+  height: 100%;
+
+  > div {
+    height: 100%;
+
+    > md-sidenav {
+      > md-toolbar.user {
+        height: 192px;
+        background-color: #424A52;
+
+        paper-icon > md-icon {
+          width: 48px;
+          height: 48px;
+        }
+      }
+
+      md-list {
+        padding: 0 0 8px 0;
+
+        background: linear-gradient(to left top, #424A52, #525c64);
+      }
+    }
+
+    > .content {
+      > .md-button {
+        position: absolute;
+        z-index: 50;
+
+        color: rgba(255, 255, 255, 0.87);
+      }
+
+      > md-content {
+        display: block;
+        height: 100vh;
+        max-height: 100vh;
+
+        overflow: auto;
+      }
+    }
+  }
+}
