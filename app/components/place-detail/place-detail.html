@@ -26,9 +26,10 @@
             <star-rating rating="review.rating"></star-rating>
           </div>
 
-          <span>{{review.user.name}}</span>
-          <span>{{review.rating}}</span>
-          <span>{{review.created_at | timeAgo}}</span>
+          <div layout="row">
+            <span flex>{{review.user.name}}</span>
+            <span class="caption">{{review.created_at | timeAgo}}</span>
+          </div>
         </li>
       </ul>
     </md-content>

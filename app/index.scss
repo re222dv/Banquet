@@ -12,6 +12,12 @@
   font-weight: 300;
 }
 
+.caption {
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 12px;
+  font-weight: 300;
+}
+
 md-autocomplete {
   z-index: 5;
   height: 48px;
@@ -47,6 +53,8 @@ md-card {
     box-sizing: content-box;
     margin: 8px -8px -8px -8px;
     padding: 8px;
+
+    border-radius: 0 0 1px 1px;
   }
 }
 
