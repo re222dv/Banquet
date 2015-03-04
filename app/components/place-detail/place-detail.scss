@@ -25,16 +25,37 @@ place-detail > md-content {
         list-style: none;
 
         > li {
+          margin: 0 auto;
+          padding-bottom: 16px;
+          max-width: 700px;
+
           > md-divider {
-            margin-bottom: 16px;
+            padding-bottom: 16px;
           }
 
           > div > p {
             margin-top: 0;
           }
 
-          & + li {
-            margin: 16px 0;
+          a {
+            color: rgba(255, 255, 255, 0.87);
+            border-bottom: 1px solid transparent;
+
+            text-decoration: none;
+
+            transition: color 0.5s, border-bottom 0.5s;
+          }
+
+          span {
+            cursor: default;
+            user-select: none;
+          }
+
+          &:hover a {
+            color: rgb(255,64,129);
+
+            border-bottom: 1px solid currentColor;
+            transition: color 0.3s, border-bottom 0.3s;
           }
         }
       }

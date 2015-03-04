@@ -26,6 +26,10 @@ angular.module('banquet', [
           $scope.id = $stateParams.id;
         }
       })
+      .state('user', {
+        url: '/user/:id',
+        template: '<user-detail layout-fill></user-detail>'
+      })
       .state('reviews', {
         url: '/reviews',
         template: '<nerby-places layout-fill></nerby-places>'

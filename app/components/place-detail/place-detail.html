@@ -27,7 +27,7 @@
           </div>
 
           <div layout="row">
-            <span flex>{{review.user.name}}</span>
+            <span flex><a ui-sref="user({id: review.user.id})">{{review.user.name}}</a></span>
             <span class="caption">{{review.created_at | timeAgo}}</span>
           </div>
         </li>
