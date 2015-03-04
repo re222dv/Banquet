@@ -20,7 +20,7 @@ function browserSyncInit(baseDir, files, browser) {
     };
   }
 
-  browserSync.instance = browserSync.init(files, {
+  browserSync.instance = browserSync(files, {
     startPath: '/',
     server: {
       baseDir: baseDir,
@@ -28,6 +28,8 @@ function browserSyncInit(baseDir, files, browser) {
       routes: routes
     },
     //browser: browser
+    open: false,
+    injectChanges: true,
   });
 }
 

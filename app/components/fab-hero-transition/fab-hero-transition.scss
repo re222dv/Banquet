@@ -142,8 +142,6 @@ fab-hero-transition {
   }
 
   > #close-fab {
-    background-color: #008000;
-
     transform: translate3d(0, 0, 0) scale(1);
     transition: transform .2s ease-in;
 
