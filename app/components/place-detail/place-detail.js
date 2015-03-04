@@ -1,6 +1,7 @@
 'use strict';
 
 import FabHeroTransition from '../fab-hero-transition/fab-hero-transition.js';
+import StarRating from '../star-rating/star-rating.js'
 
 class PlaceDetail {
 	constructor(gourmet) {
@@ -19,7 +20,9 @@ class PlaceDetail {
   }
 }
 
-export default angular.module('placeDetail', ['yaru22.angular-timeago', FabHeroTransition.name])
+export default angular.module('placeDetail', [
+  'yaru22.angular-timeago', FabHeroTransition.name, StarRating.name
+])
 	.directive('placeDetail', function() {
 		return {
 			templateUrl: 'components/place-detail/place-detail.html',

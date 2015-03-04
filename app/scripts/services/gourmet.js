@@ -35,4 +35,4 @@ class Gourmet {
 }
 
 export default angular.module('gourmet', [])
-	.service('gourmet', Gourmet );
+	.service('gourmet', Gourmet);

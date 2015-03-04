@@ -1,6 +1,7 @@
 'use strict';
 
 import FabHeroTransition from '../fab-hero-transition/fab-hero-transition.js';
+import StarRating from '../star-rating/star-rating.js'
 import HeroOnClick from '../../scripts/directives/hero-on-click.js';
 import Gourmet from '../../scripts/services/gourmet.js';
 
@@ -31,7 +32,7 @@ class NerbyPlaces {
 
 export default angular.module('nerbyPlaces', [
   'ngMaterial', 'rx', 'ui.router',
-  FabHeroTransition.name, Gourmet.name, HeroOnClick.name
+  FabHeroTransition.name, Gourmet.name, HeroOnClick.name, StarRating.name
 ])
 	.directive('nerbyPlaces', function() {
 		return {

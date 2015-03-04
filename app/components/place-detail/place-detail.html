@@ -1,30 +1,38 @@
-<md-content class="md-padding">
-  <md-toolbar hero-id="display" class="hero md-bg-primary md-tall" layout="column">
+<md-content>
+  <md-toolbar class="hero md-bg-primary md-tall" layout="column">
     <span flex></span>
     <div layout="row" layout-align="start center">
-      <h2 class="hero display-1" hero-id="name" flex>{{ctrl.place.name}}</h2>
-      <div hero-id="rating" layout="row" layout-align="center center">
-        <paper-icon icon="toggle:star"></paper-icon>
-        <span>{{ctrl.place.rating | number : 1}}</span>
-      </div>
+      <h1 class="hero display-1" hero-id="name" flex>{{ctrl.place.name}}</h1>
+      <star-rating hero-id="rating" rating="ctrl.place.rating" class="hero"></star-rating>
     </div>
   </md-toolbar>
-  <div class="spacer"></div>
-  <p class="hero" hero-id="description">{{ctrl.place.description}}</p>
 
-  <span>{{ctrl.place.street}} {{ctrl.place.city}}</span>
+  <md-content class="md-padding">
+    <p class="hero" hero-id="description">{{ctrl.place.description}}</p>
 
-  <ul>
-    <li class="animate-list" ng-repeat="review in ctrl.place.reviews">
-      <md-divider></md-divider>
+    <span>{{ctrl.place.street}} {{ctrl.place.city}}</span>
+  </md-content>
 
-      <p>{{review.description}}</p>
+  <div class="reviews">
+    <h2 class="headline">Reviews</h2>
 
-      <span>{{review.user.name}}</span>
-      <span>{{review.rating}}</span>
-      <span>{{review.created_at | timeAgo}}</span>
-    </li>
-  </ul>
+    <md-content class="md-padding">
+      <ul>
+        <li class="animate-list" ng-repeat="review in ctrl.place.reviews">
+          <md-divider ng-if="$index != 0"></md-divider>
+
+          <div layout="row">
+            <p flex>{{review.description}}</p>
+            <star-rating rating="review.rating"></star-rating>
+          </div>
+
+          <span>{{review.user.name}}</span>
+          <span>{{review.rating}}</span>
+          <span>{{review.created_at | timeAgo}}</span>
+        </li>
+      </ul>
+    </md-content>
+  </div>
 </md-content>
 
 <fab-hero-transition label="map" icon="maps:map" opened="ctrl.mapOpened">

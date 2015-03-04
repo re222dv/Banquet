@@ -1,9 +1,5 @@
 place-detail > md-content {
   > md-toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-
     padding: 16px 16px 8px;
 
     h2.display-1 {
@@ -15,12 +11,33 @@ place-detail > md-content {
     }
   }
 
-  .spacer {
-    height: 128px;
-  }
+  > .reviews {
+    > .headline {
+      margin-top: 48px;
+    }
 
-  > ul {
-    padding: 0;
-    list-style: none;
+    > md-content {
+      background-color: #424A52;
+
+      > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        > li {
+          > md-divider {
+            margin-bottom: 16px;
+          }
+
+          > div > p {
+            margin-top: 0;
+          }
+
+          & + li {
+            margin: 16px 0;
+          }
+        }
+      }
+    }
   }
 }
