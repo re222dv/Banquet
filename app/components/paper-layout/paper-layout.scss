@@ -26,6 +26,8 @@ paper-layout {
     > .content {
       > .md-button {
         position: absolute;
+        top: 4px;
+        left: 4px;
         z-index: 50;
 
         color: rgba(255, 255, 255, 0.87);

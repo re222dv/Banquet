@@ -14,10 +14,18 @@
 
 md-autocomplete {
   z-index: 5;
+  height: 48px;
   background-color: #525c64;
 
-  input {
-    color: rgba(255, 255, 255, 0.87);
+  > md-autocomplete-wrap {
+    height: 48px;
+
+    input {
+      padding: 16px 4px;
+      height: 48px;
+
+      color: rgba(255, 255, 255, 0.87);
+    }
   }
 }
 
@@ -94,7 +102,7 @@ md-content.md-default-theme {
 }
 
 @media (max-width: 960px) {
-  md-autocomplete input {
+  md-autocomplete > md-autocomplete-wrap > input {
     padding-left: 40px;
   }
 }
