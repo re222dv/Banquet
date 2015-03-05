@@ -1,0 +1,58 @@
+md-dialog.login {
+  min-height: 240px;
+  background-color: #525c64;
+
+  > div[layout-fill] {
+    min-height: 240px;
+  }
+
+  > .spinner {
+    background-color: #374046;
+  }
+
+  .animate-field {
+    overflow: hidden;
+    transition: margin-top .3s, height .3s, opacity .3s;
+
+    &.ng-enter, &.ng-leave.ng-leave-active {
+      margin-top: -28px;
+      height: 0;
+      opacity: 0;
+    }
+
+    &.ng-leave, &.ng-enter.ng-enter-active {
+      margin-top: 0;
+      height: 79px;
+      opacity: 1;
+    }
+  }
+
+  [relative] {
+    position: relative;
+    padding-left: 0.05rem;
+    padding-right: 1.3rem;
+    overflow: visible;
+  }
+
+  .animate-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: left .3s, opacity .3s;
+
+    &.ng-enter, &.ng-leave.ng-leave-active {
+      opacity: 0;
+    }
+
+    &.ng-leave, &.ng-enter.ng-enter-active {
+      opacity: 1;
+    }
+
+    &.full {
+      &.ng-leave-active {
+        left: 40px;
+      }
+    }
+  }
+}

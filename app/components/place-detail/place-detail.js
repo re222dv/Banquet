@@ -1,7 +1,7 @@
 'use strict';
 
 import FabHeroTransition from '../fab-hero-transition/fab-hero-transition.js';
-import StarRating from '../star-rating/star-rating.js'
+import StarRating from '../star-rating/star-rating.js';
 
 class PlaceDetail {
 	constructor(gourmet) {

@@ -4,6 +4,7 @@ class Gourmet {
 	constructor($http) {
     this.$http = $http;
     this.url = 'http://localhost:3000/v1';
+    this.key = 'b78d6ee724ccc781c8db08d37a375013';
   }
 
   get(path) {
@@ -31,6 +32,13 @@ class Gourmet {
 
   place(id) {
     return this.get(`/places/${id}`);
+  }
+
+  checkLogin(email, password) {
+    return this.post('/check', {
+      Username: email,
+      Password: password
+    });
   }
 }
 

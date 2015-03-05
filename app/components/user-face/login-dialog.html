@@ -1,0 +1,49 @@
+<md-dialog aria-label="Login dialog" class="login">
+  <div ng-if="!loading">
+    <md-content>
+      <h1 class="headline">Sign
+        <span relative>
+          <span ng-if="signUp" class="animate-text full">Up</span>
+          <span ng-if="!signUp" class="animate-text full">In</span>
+        </span>
+      </h1>
+      <md-input-container>
+        <label>Email</label>
+        <input type="email" ng-model="email" />
+      </md-input-container>
+
+      <md-input-container>
+        <label>Password</label>
+        <input type="password" ng-model="password" />
+      </md-input-container>
+
+      <md-input-container ng-if="signUp" class="animate-field">
+        <label>Password Confirmation</label>
+        <input type="password" ng-model="passwordConfirmation" />
+      </md-input-container>
+    </md-content>
+    <div class="md-actions">
+      <md-button ng-click="togglePage()">
+        Sign
+        <span relative>
+          <span ng-if="signUp" class="animate-text">In</span>
+          <span ng-if="!signUp" class="animate-text">Up</span>
+        </span>
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="closeDialog()">
+        Cancel
+      </md-button>
+      <md-button ng-click="signIn(email, password)" class="md-primary">
+        Sign
+        <span relative>
+          <span ng-if="signUp" class="animate-text">Up</span>
+          <span ng-if="!signUp" class="animate-text">In</span>
+        </span>
+      </md-button>
+    </div>
+  </div>
+  <div ng-if="loading" layout-fill layout="row" layout-align="center center" class="spinner">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+</md-dialog>

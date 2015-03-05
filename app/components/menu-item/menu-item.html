@@ -1,11 +1,11 @@
 <md-item>
   <a ng-if="ctrl.route != null" ui-sref="{{ctrl.route}}">
     <md-button ui-sref="{{ctrl.route}}" ui-sref-active="md-primary"
-               class="menu-item menu-title md-menu-item">
+               class="menu-item menu-title md-menu-item md-hue-1">
       <ng-transclude></ng-transclude>
     </md-button>
   </a>
-  <md-button ng-if="ctrl.route == null" ng-class="{'md-accent': ctrl.active}"
+  <md-button ng-if="ctrl.route == null" ng-class="{'md-primary': ctrl.active}"
              class="menu-item menu-title md-menu-item">
     <ng-transclude></ng-transclude>
   </md-button>

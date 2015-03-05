@@ -1,6 +1,7 @@
 'use strict';
 
 import PaperIcon from '../paper-icon/paper-icon.js';
+import UserFace from '../user-face/user-face.js';
 
 class PaperLayout {
 	constructor($mdSidenav) {
@@ -13,7 +14,9 @@ class PaperLayout {
   }
 }
 
-export default angular.module('paperLayout', ['ngMaterial', 'multi-transclude', PaperIcon.name])
+export default angular.module('paperLayout', [
+  'ngMaterial', PaperIcon.name, UserFace.name
+])
 	.directive('paperLayout', function() {
 		return {
 			templateUrl: 'components/paper-layout/paper-layout.html',

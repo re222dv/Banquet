@@ -1,7 +1,7 @@
 'use strict';
 
 import FabHeroTransition from '../fab-hero-transition/fab-hero-transition.js';
-import StarRating from '../star-rating/star-rating.js'
+import StarRating from '../star-rating/star-rating.js';
 import HeroOnClick from '../../scripts/directives/hero-on-click.js';
 import Gourmet from '../../scripts/services/gourmet.js';
 

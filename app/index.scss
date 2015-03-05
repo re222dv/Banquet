@@ -37,6 +37,7 @@ md-autocomplete {
 
 .md-button {
   padding: 8px;
+  color: rgba(255, 255, 255, 0.70);
 }
 
 md-card {
@@ -63,6 +64,48 @@ md-content.md-default-theme {
 
   color: rgba(255, 255, 255, 0.87);
   background-color: #374046;
+}
+
+@keyframes fade-in-background {
+  start {
+    background-color: transparent;
+  }
+
+  end {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.md-dialog-container {
+  background-color: rgba(0, 0, 0, 0.2);
+
+  animation: fade-in-background 0.5s;
+
+  &.ng-leave {
+    animation: fade-in-background 0.3s reverse;
+  }
+
+  md-dialog {
+    width: 40%;
+    max-width: 600px;
+    min-width: 270px;
+  }
+}
+
+md-input-container.md-default-theme {
+  > label {
+    color: rgba(255, 255, 255, 0.30);
+  }
+
+  > input.md-input {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  &.md-input-has-value:not(.md-input-invalid):not(.md-input-focused) {
+    > label {
+      color: rgba(255, 255, 255, 0.30);
+    }
+  }
 }
 
 .hidden {

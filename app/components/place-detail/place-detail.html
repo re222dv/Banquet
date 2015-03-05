@@ -1,41 +1,43 @@
-<md-content>
-  <md-toolbar class="hero md-bg-primary md-tall" layout="column">
+<div>
+  <md-toolbar class="hero md-bg-primary md-tall" layout="column" md-scroll-shrink>
     <span flex></span>
     <div layout="row" layout-align="start center">
       <h1 class="hero display-1" hero-id="name" flex>{{ctrl.place.name}}</h1>
       <star-rating hero-id="rating" rating="ctrl.place.rating" class="hero"></star-rating>
     </div>
   </md-toolbar>
-
-  <md-content class="md-padding">
-    <p class="hero" hero-id="description">{{ctrl.place.description}}</p>
-
-    <span>{{ctrl.place.street}} {{ctrl.place.city}}</span>
-  </md-content>
-
-  <div class="reviews">
-    <h2 class="headline">Reviews</h2>
+  <md-content>
 
     <md-content class="md-padding">
-      <ul>
-        <li class="animate-list" ng-repeat="review in ctrl.place.reviews">
-          <md-divider ng-if="$index != 0"></md-divider>
+      <p class="hero" hero-id="description">{{ctrl.place.description}}</p>
 
-          <div layout="row">
-            <p flex>{{review.description}}</p>
-            <star-rating rating="review.rating"></star-rating>
-          </div>
-
-          <div layout="row">
-            <span flex><a ui-sref="user({id: review.user.id})">{{review.user.name}}</a></span>
-            <span class="caption">{{review.created_at | timeAgo}}</span>
-          </div>
-        </li>
-      </ul>
+      <span>{{ctrl.place.street}} {{ctrl.place.city}}</span>
     </md-content>
-  </div>
-</md-content>
 
-<fab-hero-transition label="map" icon="maps:map" opened="ctrl.mapOpened">
-  <place-map places="ctrl.places" opened="ctrl.mapOpened"></place-map>
-</fab-hero-transition>
+    <div class="reviews">
+      <h2 class="headline">Reviews</h2>
+
+      <md-content class="md-padding">
+        <ul>
+          <li class="animate-list" ng-repeat="review in ctrl.place.reviews">
+            <md-divider ng-if="$index != 0"></md-divider>
+
+            <div layout="row">
+              <p flex>{{review.description}}</p>
+              <star-rating rating="review.rating"></star-rating>
+            </div>
+
+            <div layout="row">
+              <span flex><a ui-sref="user({id: review.user.id})">{{review.user.name}}</a></span>
+              <span class="caption">{{review.created_at | timeAgo}}</span>
+            </div>
+          </li>
+        </ul>
+      </md-content>
+    </div>
+  </md-content>
+
+  <fab-hero-transition label="map" icon="maps:map" opened="ctrl.mapOpened">
+    <place-map places="ctrl.places" opened="ctrl.mapOpened"></place-map>
+  </fab-hero-transition>
+</div>
