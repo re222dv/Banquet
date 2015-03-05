@@ -1,29 +1,45 @@
-<md-dialog aria-label="Login dialog" class="login">
-  <div ng-if="!loading">
+<md-dialog aria-label="Login dialog" class="login" ng-class="{invalid: invalid}">
+  <form name="form.user" ng-class="{invisible: loading}" novalidate>
     <md-content>
-      <h1 class="headline">Sign
-        <span relative>
-          <span ng-if="signUp" class="animate-text full">Up</span>
-          <span ng-if="!signUp" class="animate-text full">In</span>
-        </span>
-      </h1>
-      <md-input-container>
+      <div layout="row" layout-align="center center">
+        <h1 class="headline" flex>Sign
+          <span relative>
+            <span ng-if="signUp" class="animate-text full">Up</span>
+            <span ng-if="!signUp" class="animate-text full">In</span>
+          </span>
+        </h1>
+
+        <div ng-if="invalid">Invalid email and/or password</div>
+      </div>
+
+      <md-input-container ng-class="{'md-input-invalid': invalid && !signUp}">
         <label>Email</label>
-        <input type="email" ng-model="email" />
+        <input type="email" name="email" ng-model="form.email" required />
+        <div ng-messages="form.user.email.$error" ng-if="form.user.email.$dirty">
+          <div ng-message="required">An email is required</div>
+          <div ng-message="email">A valid email is required</div>
+        </div>
       </md-input-container>
 
-      <md-input-container>
+      <md-input-container ng-class="{'md-input-invalid': invalid && !signUp}">
         <label>Password</label>
-        <input type="password" ng-model="password" />
+        <input type="password" name="password" ng-model="form.password" ng-minlength="2" required />
+        <div ng-messages="form.user.password.$error" ng-if="form.user.password.$dirty">
+          <div ng-message="required">A password is required</div>
+          <div ng-message="minlength">The password must be at least 2 characters</div>
+        </div>
       </md-input-container>
 
       <md-input-container ng-if="signUp" class="animate-field">
         <label>Password Confirmation</label>
-        <input type="password" ng-model="passwordConfirmation" />
+        <input type="password" name="confirmation" ng-model="form.confirmation" required />
+        <div ng-messages="form.user.confirmation.$error">
+          <div ng-message="confirmation">The passwords is not the same</div>
+        </div>
       </md-input-container>
     </md-content>
     <div class="md-actions">
-      <md-button ng-click="togglePage()">
+      <md-button type="button" ng-click="togglePage()">
         Sign
         <span relative>
           <span ng-if="signUp" class="animate-text">In</span>
@@ -31,10 +47,11 @@
         </span>
       </md-button>
       <span flex></span>
-      <md-button ng-click="closeDialog()">
+      <md-button type="button" ng-click="closeDialog()">
         Cancel
       </md-button>
-      <md-button ng-click="signIn(email, password)" class="md-primary">
+      <md-button type="submit" ng-click="submit(form.user)"
+                 ng-class="{'md-primary': user.$valid}">
         Sign
         <span relative>
           <span ng-if="signUp" class="animate-text">Up</span>
@@ -42,8 +59,8 @@
         </span>
       </md-button>
     </div>
-  </div>
-  <div ng-if="loading" layout-fill layout="row" layout-align="center center" class="spinner">
+  </form>
+  <div ng-if="loading" layout-fill layout="row" layout-align="center center" class="spinner animate-text">
     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
   </div>
 </md-dialog>

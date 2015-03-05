@@ -7,14 +7,17 @@ class Gourmet {
     this.key = 'b78d6ee724ccc781c8db08d37a375013';
   }
 
-  get(path) {
+  req(method, path, data) {
     var req = {
-      method: 'GET',
+      method: method,
       url: `${this.url}${path}`,
+      data: data,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Key: 'b78d6ee724ccc781c8db08d37a375013'
+        Key: 'b78d6ee724ccc781c8db08d37a375013',
+        Username: this.email,
+        Password: this.password,
       },
     };
 
@@ -26,6 +29,14 @@ class Gourmet {
       });
   }
 
+  get(path) {
+    return this.req('GET', path);
+  }
+
+  post(path, data) {
+    return this.req('POST', path, data);
+  }
+
   placesNear(lat, long, query = '') {
     return this.get(`/places?query=${query}&location=${lat},${long}`);
   }
@@ -34,10 +45,22 @@ class Gourmet {
     return this.get(`/places/${id}`);
   }
 
-  checkLogin(email, password) {
-    return this.post('/check', {
-      Username: email,
-      Password: password
+  signIn(email, password) {
+    this.email = email;
+    this.password = password;
+    return this.post('/places', {})
+      .catch((e) => {
+        if (e.status == 401) {
+          throw false;
+        }
+        return true;
+      });
+  }
+
+  signUp(email, password) {
+    return this.post('/users', {
+      name: email,
+      password
     });
   }
 }

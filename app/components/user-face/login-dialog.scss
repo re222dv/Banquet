@@ -1,13 +1,38 @@
+@keyframes shake {
+  0% { transform: translate(5px, 0); }
+  50% { transform: translate(-5px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
 md-dialog.login {
-  min-height: 240px;
+  position: relative;
   background-color: #525c64;
 
+  &.invalid {
+    animation: shake .15s 2;
+  }
+
   > div[layout-fill] {
-    min-height: 240px;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   > .spinner {
     background-color: #374046;
+  }
+
+  > form {
+    transition: opacity .3s;
+
+    &.invisible {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    div[ng-if="invalid"] {
+      color: rgb(244,67,54);
+    }
   }
 
   .animate-field {

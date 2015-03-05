@@ -1,4 +1,8 @@
-<md-button layout-fill ng-if="!ctrl.loggedIn" ng-click="ctrl.open($event)">
+<md-button layout-fill ng-if="ctrl.loggedIn == null" ng-click="ctrl.open($event)">
   <paper-icon icon="action:account_circle"></paper-icon>
   Sign in
 </md-button>
+<div layout-fill ng-if="ctrl.loggedIn != null" layout="column" layout-align="center center">
+  <paper-icon icon="action:account_circle"></paper-icon>
+  {{ctrl.loggedIn}}
+</div>
