@@ -14,7 +14,7 @@
 
       <md-input-container ng-class="{'md-input-invalid': invalid && !signUp}">
         <label>Email</label>
-        <input type="email" name="email" ng-model="form.email" required />
+        <input type="email" name="email" ng-model="form.email" required autofocus />
         <div ng-messages="form.user.email.$error" ng-if="form.user.email.$dirty">
           <div ng-message="required">An email is required</div>
           <div ng-message="email">A valid email is required</div>
@@ -38,7 +38,7 @@
         </div>
       </md-input-container>
     </md-content>
-    <div class="md-actions">
+    <div class="md-actions" layout-align="space-between center">
       <md-button type="button" ng-click="togglePage()">
         Sign
         <span relative>
@@ -53,7 +53,7 @@
       <md-button type="submit" ng-click="submit(form.user)"
                  ng-class="{'md-primary': user.$valid}">
         Sign
-        <span relative>
+        <span relative class="hide-sm">
           <span ng-if="signUp" class="animate-text">Up</span>
           <span ng-if="!signUp" class="animate-text">In</span>
         </span>

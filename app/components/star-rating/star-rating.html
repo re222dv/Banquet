@@ -1,4 +1,4 @@
-<div layout="row" layout-align="center center">
+<div layout="row" layout-align="center center" ng-if="!!ctrl.rating">
   <paper-icon icon="toggle:star"></paper-icon>
   <span>{{ctrl.rating | number : 1}}</span>
 </div>

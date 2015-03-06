@@ -23,6 +23,7 @@
     "angular": false,
     "window": false,
     "navigator": false,
+    "Rx": false,
     // Angular Mocks
     "inject": false,
     // JASMINE

@@ -1,30 +1,31 @@
 'use strict';
 
 import Gourmet from '../../scripts/services/gourmet.js';
+import Storage from '../../scripts/services/storage.js';
 
 class UserFace {
-	constructor($mdDialog, gourmet) {
+	constructor($mdDialog, gourmet, storage) {
     this.$mdDialog = $mdDialog;
     this.gourmet = gourmet;
+    this.storage = storage;
 
-    this.loggedIn = null;
+    this.open = false;
+    storage.observe('auth').subscribe(({email}) => this.loggedIn = email);
   }
 
   signUp(email, password) {
-    return this.gourmet.signUp(email, password)
-      .then(() => {
-        this.loggedIn = email
-      });
+    return this.gourmet.signUp(email, password);
   }
 
   signIn(email, password) {
-    return this.gourmet.signIn(email, password)
-      .then(() => {
-        this.loggedIn = email
-      });
+    return this.gourmet.signIn(email, password);
   }
 
-  open($event) {
+  signOut() {
+    this.storage.set('auth', {});
+  }
+
+  dialog($event) {
     this.$mdDialog.show({
       targetEvent: $event,
       templateUrl: 'components/user-face/login-dialog.html',
@@ -39,7 +40,7 @@ class UserFace {
         scope.submit = (form) => {
           scope.invalid = false;
 
-          if (scope.signUp && scope.form.password != scope.form.confirmation) {
+          if (scope.signUp && scope.form.password !== scope.form.confirmation) {
             scope.form.user.confirmation.$setValidity('confirmation', false);
           }
 
@@ -64,7 +65,7 @@ class UserFace {
 
         scope.$watch('form.confirmation', (value) => {
           if (scope.form.user.confirmation) {
-            scope.form.user.confirmation.$setValidity('confirmation', value == scope.form.password);
+            scope.form.user.confirmation.$setValidity('confirmation', value === scope.form.password);
           }
         });
       }
@@ -72,7 +73,9 @@ class UserFace {
   }
 }
 
-export default angular.module('userFace', ['ngMaterial', 'ngMessages', Gourmet.name])
+export default angular.module('userFace', [
+  'ngMaterial', 'ngMessages', Gourmet.name, Storage.name
+])
 	.directive('userFace', function() {
 		return {
 			templateUrl: 'components/user-face/user-face.html',

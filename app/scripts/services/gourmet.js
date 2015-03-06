@@ -1,10 +1,15 @@
 'use strict';
 
+import {default as Storage, Lifetime} from './storage.js';
+
 class Gourmet {
-	constructor($http) {
+	constructor($http, storage) {
     this.$http = $http;
     this.url = 'http://localhost:3000/v1';
     this.key = 'b78d6ee724ccc781c8db08d37a375013';
+
+    this.storage = storage;
+    storage.observe('auth', {}).subscribe(auth => this._auth = auth);
   }
 
   req(method, path, data) {
@@ -16,8 +21,8 @@ class Gourmet {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         Key: 'b78d6ee724ccc781c8db08d37a375013',
-        Username: this.email,
-        Password: this.password,
+        Username: this._auth.email,
+        Password: this._auth.password,
       },
     };
 
@@ -46,13 +51,14 @@ class Gourmet {
   }
 
   signIn(email, password) {
-    this.email = email;
-    this.password = password;
+    this._auth = {email, password};
+
     return this.post('/places', {})
       .catch((e) => {
-        if (e.status == 401) {
+        if (e.status === 401) {
           throw false;
         }
+        this.storage.set('auth', {email, password}, Lifetime.Session);
         return true;
       });
   }
@@ -61,9 +67,13 @@ class Gourmet {
     return this.post('/users', {
       name: email,
       password
-    });
+    })
+      .then(_ => {
+        this.storage.set('auth', {email, password}, Lifetime.Session);
+        return _;
+      });
   }
 }
 
-export default angular.module('gourmet', [])
+export default angular.module('gourmet', [Storage.name])
 	.service('gourmet', Gourmet);

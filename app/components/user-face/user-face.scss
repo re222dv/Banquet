@@ -9,6 +9,10 @@ user-face {
     position: absolute;
     transition: opacity .3s;
 
+    &.user {
+      text-transform: none;
+    }
+
     &.ng-enter, &.ng-leave.ng-leave-active {
       opacity: 0;
     }

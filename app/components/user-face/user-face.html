@@ -1,8 +1,13 @@
-<md-button layout-fill ng-if="ctrl.loggedIn == null" ng-click="ctrl.open($event)">
+<md-button layout-fill ng-if="!ctrl.loggedIn" ng-click="ctrl.dialog($event)">
   <paper-icon icon="action:account_circle"></paper-icon>
   Sign in
 </md-button>
-<div layout-fill ng-if="ctrl.loggedIn != null" layout="column" layout-align="center center">
+<md-button layout-fill ng-if="!!ctrl.loggedIn && !ctrl.menuOpen" ng-click="ctrl.menuOpen = true"
+           class="user">
   <paper-icon icon="action:account_circle"></paper-icon>
   {{ctrl.loggedIn}}
+</md-button>
+<div layout-fill ng-if="!!ctrl.loggedIn && ctrl.menuOpen" layout="column" layout-align="center center">
+  <md-button ng-click="ctrl.signOut(); ctrl.menuOpen = false">Sign Out</md-button>
+  <md-button ng-click="ctrl.menuOpen = false">Cancel</md-button>
 </div>
