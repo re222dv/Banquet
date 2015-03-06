@@ -131,7 +131,7 @@ md-input-container.md-default-theme {
 }
 .page-transition.ng-enter.ng-enter-active {
   opacity: 1;
-  z-index: 9999;
+  z-index: 58;
 }
 
 // Hero transition, animate all properties from the odl to the new position
@@ -149,7 +149,7 @@ md-input-container.md-default-theme {
   -webkit-transition: all ease-in-out .25s;
   transition: all ease-in-out .25s;
   position: absolute;
-  z-index: 10000;
+  z-index: 59;
 }
 
 @media (max-width: 960px) {
