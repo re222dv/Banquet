@@ -1,16 +1,15 @@
-'use strict';
-
 import Gourmet from '../../scripts/services/gourmet.js';
 import Storage from '../../scripts/services/storage.js';
 
 class UserFace {
-	constructor($mdDialog, gourmet, storage) {
+	constructor($mdDialog, gourmet, storage, $scope) {
     this.$mdDialog = $mdDialog;
     this.gourmet = gourmet;
     this.storage = storage;
 
     this.open = false;
-    storage.observe('auth').subscribe(({email}) => this.loggedIn = email);
+    let subscription = storage.observe('auth').subscribe(({email}) => this.loggedIn = email);
+    $scope.$on('$destroy', () => subscription.dispose());
   }
 
   signUp(email, password) {
@@ -76,20 +75,18 @@ class UserFace {
 export default angular.module('userFace', [
   'ngMaterial', 'ngMessages', Gourmet.name, Storage.name
 ])
-	.directive('userFace', function() {
-		return {
-			templateUrl: 'components/user-face/user-face.html',
-			restrict: 'E',
-			scope: {
-				// Specify attributes where parents can pass and receive data here
-				// Syntax name: 'FLAG'
-				// FLAGS:
-				// = Two way data binding
-				// @ One way incoming expression (like placeholder)
-				// & One way outgoing behaviour (like ng-click)
-			},
-			bindToController: true,
-			controller: UserFace,
-			controllerAs: 'ctrl'
-		};
-	});
+	.directive('userFace', () => ({
+    templateUrl: 'components/user-face/user-face.html',
+    restrict: 'E',
+    scope: {
+      // Specify attributes where parents can pass and receive data here
+      // Syntax name: 'FLAG'
+      // FLAGS:
+      // = Two way data binding
+      // @ One way incoming expression (like placeholder)
+      // & One way outgoing behaviour (like ng-click)
+    },
+    bindToController: true,
+    controller: UserFace,
+    controllerAs: 'ctrl'
+	}));
