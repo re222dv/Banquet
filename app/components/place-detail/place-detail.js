@@ -13,7 +13,7 @@ class PlaceDetail {
       street: ' ',
     };
     gourmet.place(this.id)
-      .then(place => {
+      .subscribe(place => {
         this.place = place;
         this.places = [place];
       });

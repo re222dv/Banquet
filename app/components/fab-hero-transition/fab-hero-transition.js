@@ -61,4 +61,7 @@ export default angular.module('fabHeroTransition', [PaperIcon.name])
 			controller: FabHeroTransition ,
 			controllerAs: 'ctrl'
 		};
-	});
+	})
+  .animation('.fab-animation', function($animate) {
+
+  });

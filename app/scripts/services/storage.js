@@ -55,6 +55,21 @@ class Storage {
   }
 
   /**
+   * Get the value of key from session or local stroage
+   * @param {String} key
+   */
+  get(key) {
+    let value = window.sessionStorage.getItem(key);
+    if (value === null) {
+      value = window.localStorage.getItem(key);
+    }
+    if (value !== null) {
+      value = JSON.parse(value);
+    }
+    return value;
+  }
+
+  /**
    * Observe the value with key
    *
    * @param {String} key
@@ -63,10 +78,8 @@ class Storage {
    */
   observe(key, defaultValue = null) {
     if (!this.subjects[key]) {
-      let value = window.sessionStorage.getItem(key);
-      if (value === null) {
-        value = window.localStorage.getItem(key);
-      }
+      let value = this.get(key);
+
       if (value === null) {
         value = defaultValue;
       } else {
@@ -104,5 +117,5 @@ class Storage {
   }
 }
 
-export default angular.module('storage', [])
+export default angular.module('storage', ['rx'])
 	.service('storage', Storage );

@@ -26,7 +26,7 @@ class NerbyPlaces {
     if (!this.latitude || !this.longitude) { return; }
 
     return this.gourmet.placesNear(this.latitude, this.longitude, this.search)
-      .then(places => this.places = places);
+      .subscribe(places => this.places = places);
   }
 }
 

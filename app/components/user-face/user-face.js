@@ -1,3 +1,5 @@
+'use strict';
+
 import Gourmet from '../../scripts/services/gourmet.js';
 import Storage from '../../scripts/services/storage.js';
 
