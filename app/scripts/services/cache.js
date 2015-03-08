@@ -8,7 +8,12 @@ export const TIME = Object.freeze({
 });
 
 class Cache {
-
+  /**
+   * @param $http
+   * @param $timeout
+   * @param {Rx} rx
+   * @param {Storage} storage
+   */
 	constructor($http, $timeout, rx, storage) {
     this.$http = $http;
     this.$timeout = $timeout;

@@ -19,6 +19,10 @@ export var Lifetime = Object.freeze({
  * A service for abstracting storage and notifications
  */
 class Storage {
+  /**
+   * @param $window
+   * @param {Rx} rx
+   */
 	constructor($window, rx) {
     this.$window = $window;
     this.rx = rx;
