@@ -47,10 +47,15 @@ class Gourmet {
    * This endpoint is cached.
    *
    * @param {String|number} id
+   * @param {bool} cache If the cache should be used
    * @returns {Rx.Observable}
    */
-  place(id) {
-    return this._get(`/places/${id}`);
+  place(id, cache = true) {
+    return this._get(`/places/${id}`, null, (cache) ? TIME.TEN_MINUTES : 0.1);
+  }
+
+  createReview(placeId, review) {
+    return this._post(`/places/${placeId}/reviews`, review);
   }
 
   signIn(email, password) {

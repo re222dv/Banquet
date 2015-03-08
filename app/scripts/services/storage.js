@@ -87,8 +87,6 @@ class Storage {
 
       if (value === null) {
         value = defaultValue;
-      } else {
-        value = JSON.parse(value);
       }
 
       this._set(key, value);

@@ -1,7 +1,8 @@
 'use strict';
 
 class PlaceMap {
-	constructor($scope) {
+	constructor($scope, $window) {
+    this.$window = $window;
     this.center = { latitude: 16, longitude: 56 };
     this.zoom = 14;
 
@@ -11,7 +12,7 @@ class PlaceMap {
 
     $scope.$watch('ctrl.opened', (opened) => {
       if (!this.map || !opened) { return; }
-      window.google.maps.event.trigger(this.map, 'resize');
+      this.$window.google.maps.event.trigger(this.map, 'resize');
     });
   }
 }

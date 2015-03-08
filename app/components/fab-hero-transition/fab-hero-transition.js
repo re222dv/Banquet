@@ -55,6 +55,6 @@ export default angular.module('fabHeroTransition', [PaperIcon.name])
     controller: FabHeroTransition ,
     controllerAs: 'ctrl',
 	}))
-  .animation('.fab-animation', ($animate) => {
+  .animation('.fab-animation', () => {
 
   });

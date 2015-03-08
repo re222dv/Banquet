@@ -2,22 +2,26 @@ place-detail > div {
   height: 100vh;
   overflow: hidden;
 
-  md-content {
-    > md-toolbar {
-      padding: 16px 16px 8px;
+  > md-toolbar {
+    padding: 16px 16px 8px;
 
-      h2.display-1 {
-        margin: 0;
-      }
-
-      [hero-id="rating"] > span {
-        padding-left: 8px;
-      }
+    h2.display-1 {
+      margin: 0;
     }
 
+    [hero-id="rating"] > span {
+      padding-left: 8px;
+    }
+  }
+
+  > md-content {
     > .reviews {
       > .headline {
         margin-top: 48px;
+      }
+
+      paper-icon[icon="content:create"] {
+        margin-right: 8px;
       }
 
       > md-content {
@@ -30,11 +34,11 @@ place-detail > div {
 
           > li {
             margin: 0 auto;
-            padding-bottom: 16px;
+            padding-top: 16px;
             max-width: 700px;
 
             > md-divider {
-              padding-bottom: 16px;
+              margin-top: 16px;
             }
 
             > div > p {
@@ -48,6 +52,13 @@ place-detail > div {
               text-decoration: none;
 
               transition: color 0.5s, border-bottom 0.5s;
+
+              &:focus {
+                color: rgb(255, 64, 129);
+
+                border-bottom: 1px solid currentColor;
+                transition: color 0.3s, border-bottom 0.3s;
+              }
             }
 
             span {
@@ -56,14 +67,35 @@ place-detail > div {
             }
 
             &:hover a {
-              color: rgb(255,64,129);
+              color: rgb(255, 64, 129);
 
               border-bottom: 1px solid currentColor;
               transition: color 0.3s, border-bottom 0.3s;
             }
 
-            &:last-of-type {
-              padding-bottom: 16px;
+            &:first-of-type {
+              padding-top: 0;
+            }
+
+            &:last-of-type md-divider {
+              display: none;
+            }
+
+            &.new {
+              margin-bottom: -16px;
+
+              &.ng-enter {
+                max-height: 0;
+                opacity: 0;
+                transform: scaleY(0);
+                transition: max-height .5s linear, opacity .5s linear, transform .5s linear;
+
+                &.ng-enter-active {
+                  max-height: 106px;
+                  opacity: 1;
+                  transform: scaleY(1);
+                }
+              }
             }
           }
         }

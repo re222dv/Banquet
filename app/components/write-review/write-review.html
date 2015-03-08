@@ -1,0 +1,21 @@
+<form name="ctrl.form" novalidate>
+  <div layout="row" layout-align="center center">
+    <div layout="column" flex>
+      <div layout="row">
+        <h3 class="title">{{ctrl.heading}}</h3>
+        <span flex></span>
+        <star-rating-picker rating="ctrl.rating"></star-rating-picker>
+      </div>
+      <md-input-container flex md-is-error="ctrl.form.$submitted && ctrl.form.review.$invalid">
+        <label>Write your review</label>
+        <textarea rows="1" name="review" ng-model="ctrl.review" required></textarea>
+        <div ng-messages="ctrl.form.review.$error" ng-if="ctrl.form.$submitted">
+          <div ng-message="required">A review is required</div>
+        </div>
+      </md-input-container>
+    </div>
+    <md-button type="submit" ng-class="{'md-primary': !!ctrl.review}" class="post" ng-click="ctrl.post()">
+      <paper-icon icon="content:send" aria-label="Post Review"></paper-icon>
+    </md-button>
+  </div>
+</form>

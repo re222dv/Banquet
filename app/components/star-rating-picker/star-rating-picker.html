@@ -1,0 +1,19 @@
+<md-button ng-click="ctrl.rating = 1" aria-label="Rate 1/5" class="md-primary">
+  <paper-icon icon="toggle:star"></paper-icon>
+</md-button>
+<md-button ng-click="ctrl.rating = 2" aria-label="Rate 2/5" class="md-primary">
+  <paper-icon icon="toggle:star_outline" ng-if="ctrl.rating < 2"></paper-icon>
+  <paper-icon icon="toggle:star" ng-if="ctrl.rating >= 2"></paper-icon>
+</md-button>
+<md-button ng-click="ctrl.rating = 3" aria-label="Rate 3/5" class="md-primary">
+  <paper-icon icon="toggle:star_outline" ng-if="ctrl.rating < 3"></paper-icon>
+  <paper-icon icon="toggle:star" ng-if="ctrl.rating >= 3"></paper-icon>
+</md-button>
+<md-button ng-click="ctrl.rating = 4" aria-label="Rate 4/5" class="md-primary">
+  <paper-icon icon="toggle:star_outline" ng-if="ctrl.rating < 4"></paper-icon>
+  <paper-icon icon="toggle:star" ng-if="ctrl.rating >= 4"></paper-icon>
+</md-button>
+<md-button ng-click="ctrl.rating = 5" aria-label="Rate 5/5" class="md-primary">
+  <paper-icon icon="toggle:star_outline" ng-if="ctrl.rating < 5"></paper-icon>
+  <paper-icon icon="toggle:star" ng-if="ctrl.rating >= 5"></paper-icon>
+</md-button>
