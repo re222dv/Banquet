@@ -25,6 +25,10 @@ class Gourmet {
     storage.observe('auth', {}).subscribe(auth => this._auth = auth);
   }
 
+  get signedIn() {
+    return this._auth.email;
+  }
+
   /**
    * Searches for places near the coordinates specified.
    * This endpoint is cached if no query is specified.
@@ -56,6 +60,10 @@ class Gourmet {
 
   createReview(placeId, review) {
     return this._post(`/places/${placeId}/reviews`, review);
+  }
+
+  deleteReview(placeId, reviewId) {
+    return this._req('DELETE', `/places/${placeId}/reviews/${reviewId}`);
   }
 
   signIn(email, password) {

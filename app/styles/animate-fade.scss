@@ -1,6 +1,4 @@
 .animate-fade {
-  display: block;
-
   &.ng-enter, &.ng-leave {
     transition: opacity ease-out .3s;
   }

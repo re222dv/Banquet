@@ -5,7 +5,8 @@ import StarRating from '../star-rating/star-rating.js';
 import WriteReview from '../write-review/write-review.js';
 
 class PlaceDetail {
-	constructor(gourmet) {
+	constructor($mdDialog, gourmet) {
+    this.$mdDialog = $mdDialog;
     this.gourmet = gourmet;
 
     this.place = {
@@ -23,21 +24,40 @@ class PlaceDetail {
         this.places = [place];
       });
 
+    // NOTE: Created from here as it's is passed to write-review
+    // and this would otherwise be messed up
     this.createReview = (review) => {
       this.gourmet.createReview(this.id, review)
-        .then(() =>
-          gourmet.place(this.id, false)
-            .subscribe(place => {
-              this.newReview = false;
-              this.place = place;
-              this.places = [place];
-            }));
+        .then(() => this.updatePlace());
     };
+  }
+
+  deleteReview(reviewId, $event) {
+    let dialog = this.$mdDialog.confirm()
+      .title('Delete Review')
+      .content('Do you really want to delete this review?')
+      .ok('yes')
+      .cancel('no')
+      .targetEvent($event);
+
+    this.$mdDialog
+      .show(dialog)
+      .then(() => this.gourmet.deleteReview(this.id, reviewId))
+      .then(() => this.updatePlace());
+  }
+
+  updatePlace() {
+    this.gourmet.place(this.id, false)
+      .subscribe(place => {
+        this.newReview = false;
+        this.place = place;
+        this.places = [place];
+      });
   }
 }
 
 export default angular.module('placeDetail', [
-  'yaru22.angular-timeago', FabHeroTransition.name, StarRating.name, WriteReview.name
+  'ngMaterial', 'yaru22.angular-timeago', FabHeroTransition.name, StarRating.name, WriteReview.name
 ])
 	.directive('placeDetail', () => ({
     templateUrl: 'components/place-detail/place-detail.html',

@@ -45,6 +45,33 @@ place-detail > div {
               margin-top: 0;
             }
 
+            .md-button {
+              margin-left: 8px;
+              padding: 0;
+              height: 24px;
+
+              span {
+                box-sizing: border-box;
+                padding: 0;
+                max-width: 0;
+                overflow: hidden;
+                cursor: pointer;
+
+                transition: padding .3s, max-width .3s;
+              }
+
+              &:hover {
+                span {
+                  padding: 0 8px;
+                  max-width: 70px;
+                }
+              }
+            }
+
+            star-rating {
+              padding-left: 16px;
+            }
+
             a {
               color: rgba(255, 255, 255, 0.87);
               border-bottom: 1px solid transparent;

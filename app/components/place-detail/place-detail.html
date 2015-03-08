@@ -18,7 +18,7 @@
       <div layout="row">
         <h2 class="headline" flex>Reviews</h2>
         <md-button layout="row" class="md-primary animate-fade"
-                   ng-if="!ctrl.newReview" ng-click="ctrl.newReview = true">
+                   ng-if="!ctrl.newReview && ctrl.gourmet.signedIn" ng-click="ctrl.newReview = true">
           <paper-icon icon="content:create"></paper-icon>
           Write Review
         </md-button>
@@ -27,11 +27,23 @@
       <md-content class="md-padding">
         <ul>
           <li class="new" ng-if="ctrl.newReview">
-            <write-review done="ctrl.createReview" heading="New Review"></write-review>
+            <write-review done="ctrl.createReview" heading="Write Review"></write-review>
           </li>
           <li class="insert-list-animation" ng-repeat="review in ctrl.place.reviews">
             <div layout="row">
               <p flex>{{review.description}}</p>
+              <div layout="row" class="animate-fade"
+                   ng-if="review.user.name == ctrl.gourmet.signedIn">
+                <md-button layout="row" class="md-accent" ng-click="ctrl.editReview(review.id)">
+                  <span>Edit</span>
+                  <paper-icon icon="image:edit"></paper-icon>
+                </md-button>
+                <md-button layout="row" class="md-accent"
+                           ng-click="ctrl.deleteReview(review.id, $event)">
+                  <span>Delete</span>
+                  <paper-icon icon="action:delete"></paper-icon>
+                </md-button>
+              </div>
               <star-rating rating="review.rating"></star-rating>
             </div>
 
