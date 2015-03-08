@@ -1,3 +1,4 @@
+'use strict';
 
 import {default as Storage, Lifetime} from './storage.js';
 
@@ -8,8 +9,9 @@ export const TIME = Object.freeze({
 
 class Cache {
 
-	constructor($http, rx, storage) {
+	constructor($http, $timeout, rx, storage) {
     this.$http = $http;
+    this.$timeout = $timeout;
     this.rx = rx;
     this.storage = storage;
   }
@@ -54,7 +56,7 @@ class Cache {
     } else {
       subject.onCompleted();
 
-      setTimeout(subject.dispose, 0);
+      this.$timeout(subject.dispose, 0, false);
     }
 
     return subject.asObservable();
@@ -62,4 +64,4 @@ class Cache {
 }
 
 export default angular.module('cache', ['rx', Storage.name])
-	.service('cache', Cache );
+	.service('cache', Cache);

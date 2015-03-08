@@ -19,7 +19,8 @@ export var Lifetime = Object.freeze({
  * A service for abstracting storage and notifications
  */
 class Storage {
-	constructor(rx) {
+	constructor($window, rx) {
+    this.$window = $window;
     this.rx = rx;
     this.subjects = {};
   }
@@ -34,10 +35,10 @@ class Storage {
   set(key, value, lifetime = Lifetime.Instance) {
     switch (lifetime) {
       case Lifetime.Unlimited:
-        window.localStorage.setItem(key, JSON.stringify(value));
+        this.$window.localStorage.setItem(key, JSON.stringify(value));
         break;
       case Lifetime.Session:
-        window.sessionStorage.setItem(key, JSON.stringify(value));
+        this.$window.sessionStorage.setItem(key, JSON.stringify(value));
         break;
     }
 
@@ -59,9 +60,9 @@ class Storage {
    * @param {String} key
    */
   get(key) {
-    let value = window.sessionStorage.getItem(key);
+    let value = this.$window.sessionStorage.getItem(key);
     if (value === null) {
-      value = window.localStorage.getItem(key);
+      value = this.$window.localStorage.getItem(key);
     }
     if (value !== null) {
       value = JSON.parse(value);
@@ -118,4 +119,4 @@ class Storage {
 }
 
 export default angular.module('storage', ['rx'])
-	.service('storage', Storage );
+	.service('storage', Storage);

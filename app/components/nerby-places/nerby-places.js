@@ -34,20 +34,18 @@ export default angular.module('nerbyPlaces', [
   'ngMaterial', 'rx', 'ui.router',
   FabHeroTransition.name, Gourmet.name, HeroOnClick.name, StarRating.name
 ])
-	.directive('nerbyPlaces', function() {
-		return {
-			templateUrl: 'components/nerby-places/nerby-places.html',
-			restrict: 'E',
-			scope: {
-				// Specify attributes where parents can pass and receive data here
-				// Syntax name: 'FLAG'
-				// FLAGS:
-				// = Two way data binding
-				// @ One way incoming expression (like placeholder)
-				// & One way outgoing behaviour (like ng-click)
-			},
-			bindToController: true,
-			controller: NerbyPlaces ,
-			controllerAs: 'ctrl'
-		};
-	});
+	.directive('nerbyPlaces', () => ({
+    templateUrl: 'components/nerby-places/nerby-places.html',
+    restrict: 'E',
+    scope: {
+      // Specify attributes where parents can pass and receive data here
+      // Syntax name: 'FLAG'
+      // FLAGS:
+      // = Two way data binding
+      // @ One way incoming expression (like placeholder)
+      // & One way outgoing behaviour (like ng-click)
+    },
+    bindToController: true,
+    controller: NerbyPlaces ,
+    controllerAs: 'ctrl',
+	}));

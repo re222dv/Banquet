@@ -19,11 +19,10 @@
   "smarttabs": true,
   "white": true,
   "validthis": true,
+  "freeze": true,
+  "nonew": true,
   "globals": {
     "angular": false,
-    "window": false,
-    "navigator": false,
-    "Rx": false,
     // Angular Mocks
     "inject": false,
     // JASMINE

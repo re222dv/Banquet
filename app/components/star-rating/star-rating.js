@@ -7,21 +7,19 @@ class StarRating {
 }
 
 export default angular.module('starRating', [PaperIcon.name])
-	.directive('starRating', function() {
-		return {
-			templateUrl: 'components/star-rating/star-rating.html',
-			restrict: 'E',
-			scope: {
-				// Specify attributes where parents can pass and receive data here
-				// Syntax name: 'FLAG'
-				// FLAGS:
-				// = Two way data binding
-				// @ One way incoming expression (like placeholder)
-				// & One way outgoing behaviour (like ng-click)
-        rating: '=',
-			},
-			bindToController: true,
-			controller: StarRating ,
-			controllerAs: 'ctrl'
-		};
-	});
+	.directive('starRating', () => ({
+    templateUrl: 'components/star-rating/star-rating.html',
+    restrict: 'E',
+    scope: {
+      // Specify attributes where parents can pass and receive data here
+      // Syntax name: 'FLAG'
+      // FLAGS:
+      // = Two way data binding
+      // @ One way incoming expression (like placeholder)
+      // & One way outgoing behaviour (like ng-click)
+      rating: '=',
+    },
+    bindToController: true,
+    controller: StarRating ,
+    controllerAs: 'ctrl',
+	}));

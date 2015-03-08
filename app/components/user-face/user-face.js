@@ -90,5 +90,5 @@ export default angular.module('userFace', [
     },
     bindToController: true,
     controller: UserFace,
-    controllerAs: 'ctrl'
+    controllerAs: 'ctrl',
 	}));
