@@ -6,7 +6,7 @@ import HeroOnClick from '../../scripts/directives/hero-on-click.js';
 import Gourmet from '../../scripts/services/gourmet.js';
 
 class NerbyPlaces {
-	constructor($scope, observeOnScope, gourmet) {
+	constructor($scope, $window, observeOnScope, gourmet) {
     this.gourmet = gourmet;
     this.places = [];
     this.search = '';
@@ -15,7 +15,7 @@ class NerbyPlaces {
       .debounce(250)
       .subscribe(this.filter.bind(this));
 
-    navigator.geolocation.getCurrentPosition(position => {
+    $window.navigator.geolocation.getCurrentPosition(position => {
       this.latitude = position.coords.latitude;
       this.longitude = position.coords.longitude;
       this.filter();
