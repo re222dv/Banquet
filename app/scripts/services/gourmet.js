@@ -47,7 +47,7 @@ class Gourmet {
         user: review.user,
         rating: review.rating,
       })))
-      .take(30)
+      .take(15)
       .reduce((all, current) => all.concat(current), []);
   }
 
