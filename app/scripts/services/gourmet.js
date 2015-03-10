@@ -29,6 +29,28 @@ class Gourmet {
     return this._auth.email;
   }
 
+  allPlaces() {
+    return this._get('/places', null, TIME.ONE_MINUTE);
+  }
+
+  latestReviews() {
+    return this.allPlaces()
+      .flatMap(page => page.items)
+      .flatMap(place => this.place(place.id))
+      .flatMap(place => place.reviews.map(review => ({
+        id: review.id,
+        place_id: review.place_id,
+        place: place,
+        timestamp: Date.parse(review.updated_at),
+        updated_at: review.updated_at,
+        description: review.description,
+        user: review.user,
+        rating: review.rating,
+      })))
+      .take(30)
+      .reduce((all, current) => all.concat(current), []);
+  }
+
   /**
    * Searches for places near the coordinates specified.
    * This endpoint is cached if no query is specified.

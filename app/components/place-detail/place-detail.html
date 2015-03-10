@@ -33,7 +33,7 @@
             <write-review done="ctrl.editReview" heading="Edit Review" initial="review" ng-if="review.edit"></write-review>
             <div ng-if="!review.edit">
               <div layout="row">
-                <p flex>{{review.description}}</p>
+                <p flex hero-id="review-{{review.id}}-description" class="hero">{{review.description}}</p>
                 <div layout="row" class="animate-fade"
                      ng-if="review.user.name == ctrl.gourmet.signedIn">
                   <md-button layout="row" class="md-accent" ng-click="review.edit = true">
@@ -46,12 +46,12 @@
                     <paper-icon icon="action:delete"></paper-icon>
                   </md-button>
                 </div>
-                <star-rating rating="review.rating"></star-rating>
+                <star-rating rating="review.rating" hero-id="review-{{review.id}}-rating" class="hero"></star-rating>
               </div>
 
               <div layout="row">
-                <span flex><a ui-sref="user({id: review.user.id})">{{review.user.name}}</a></span>
-                <span class="caption">{{review.updated_at | timeAgo}}</span>
+                <span flex hero-id="review-{{review.id}}-user" class="hero"><a ui-sref="user({id: review.user.id})">{{review.user.name}}</a></span>
+                <span class="caption hero" hero-id="review-{{review.id}}-time">{{review.updated_at | timeAgo}}</span>
               </div>
 
               <md-divider></md-divider>

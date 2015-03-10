@@ -156,6 +156,11 @@ md-input-container.md-default-theme {
   transition: all ease-in-out .25s;
   position: absolute;
   z-index: 59;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+  }
 }
 
 @media (max-width: 960px) {

@@ -6,7 +6,7 @@ import HeroOnClick from '../../scripts/directives/hero-on-click.js';
 import Gourmet from '../../scripts/services/gourmet.js';
 
 class NerbyPlaces {
-	constructor(gourmet, observeOnScope, $scope) {
+	constructor($scope, observeOnScope, gourmet) {
     this.gourmet = gourmet;
     this.places = [];
     this.search = '';

@@ -1,0 +1,15 @@
+latest-reviews {
+  display: block;
+
+  > div > a {
+    margin: 0 auto;
+    max-width: 600px;
+
+    color: rgba(255, 255, 255, 0.87);
+    text-decoration: none;
+
+    p {
+      margin-top: 0;
+    }
+  }
+}

@@ -4,7 +4,7 @@
   </md-autocomplete>
 
   <a class="animate-list" ng-repeat="place in ctrl.places track by place.id" ui-sref="place({id: place.id})">
-    <md-card hero-on-click>
+    <md-card hero-on-click="place-{{place.id}}">
       <p hero-id="description">{{place.description}}</p>
       <md-toolbar layout="row" layout-align="start center" class="md-bg-primary">
         <h2 class="headline" hero-id="name" flex>{{place.name}}</h2>
