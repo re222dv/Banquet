@@ -1,28 +1,24 @@
-.display-1 {
-  margin: 8px;
+$dark-background: true;
+@import '../bower_components/material-sass/lib/definitions';
 
-  font-size: 34px;
-  font-weight: 300;
+.display-1 {
+  @include font-display-1;
+  color: $text-color;
+  margin: 8px;
 }
 
 .headline {
+  @include font-headline;
   margin: 8px;
-
-  font-size: 24px;
-  font-weight: 300;
 }
 
 .title {
+  @include font-title;
   margin: 8px 0;
-
-  font-size: 20px;
-  font-weight: normal;
 }
 
 .caption {
-  color: rgba(255, 255, 255, 0.54);
-  font-size: 12px;
-  font-weight: 300;
+  @include font-caption;
 }
 
 md-autocomplete {
@@ -44,7 +40,7 @@ md-autocomplete {
 
 .md-button {
   padding: 8px;
-  color: rgba(255, 255, 255, 0.70);
+  color: $secondary-text-color;
 }
 
 md-card {
@@ -53,7 +49,7 @@ md-card {
 
   max-width: 600px;
 
-  color: rgba(255, 255, 255, 0.87);
+  color: $text-color;
   background-color: #525c64;
 
   md-toolbar[layout] {
@@ -129,7 +125,6 @@ md-input-container.md-default-theme {
 
 // Basic page transition, fades out the old page and fades in the new
 .page-transition.ng-enter, .page-transition.ng-leave {
-  -webkit-transition: opacity ease-in-out .3s;
   transition: opacity ease-in-out .3s;
   position: absolute;
   top: 0;

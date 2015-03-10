@@ -30,29 +30,32 @@
             <write-review done="ctrl.createReview" heading="Write Review"></write-review>
           </li>
           <li class="insert-list-animation" ng-repeat="review in ctrl.place.reviews">
-            <div layout="row">
-              <p flex>{{review.description}}</p>
-              <div layout="row" class="animate-fade"
-                   ng-if="review.user.name == ctrl.gourmet.signedIn">
-                <md-button layout="row" class="md-accent" ng-click="ctrl.editReview(review.id)">
-                  <span>Edit</span>
-                  <paper-icon icon="image:edit"></paper-icon>
-                </md-button>
-                <md-button layout="row" class="md-accent"
-                           ng-click="ctrl.deleteReview(review.id, $event)">
-                  <span>Delete</span>
-                  <paper-icon icon="action:delete"></paper-icon>
-                </md-button>
+            <write-review done="ctrl.editReview" heading="Edit Review" initial="review" ng-if="review.edit"></write-review>
+            <div ng-if="!review.edit">
+              <div layout="row">
+                <p flex>{{review.description}}</p>
+                <div layout="row" class="animate-fade"
+                     ng-if="review.user.name == ctrl.gourmet.signedIn">
+                  <md-button layout="row" class="md-accent" ng-click="review.edit = true">
+                    <span>Edit</span>
+                    <paper-icon icon="image:edit"></paper-icon>
+                  </md-button>
+                  <md-button layout="row" class="md-accent"
+                             ng-click="ctrl.deleteReview(review.id, $event)">
+                    <span>Delete</span>
+                    <paper-icon icon="action:delete"></paper-icon>
+                  </md-button>
+                </div>
+                <star-rating rating="review.rating"></star-rating>
               </div>
-              <star-rating rating="review.rating"></star-rating>
-            </div>
 
-            <div layout="row">
-              <span flex><a ui-sref="user({id: review.user.id})">{{review.user.name}}</a></span>
-              <span class="caption">{{review.created_at | timeAgo}}</span>
-            </div>
+              <div layout="row">
+                <span flex><a ui-sref="user({id: review.user.id})">{{review.user.name}}</a></span>
+                <span class="caption">{{review.updated_at | timeAgo}}</span>
+              </div>
 
-            <md-divider></md-divider>
+              <md-divider></md-divider>
+            </div>
           </li>
         </ul>
       </md-content>

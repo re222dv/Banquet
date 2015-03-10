@@ -6,6 +6,12 @@ class WriteReview {
 	constructor() {
     this.rating = 3;
     this.review = null;
+
+    if (this.initial) {
+      this.review = this.initial.description;
+      this.rating = this.initial.rating;
+      this.id = this.initial.id;
+    }
   }
 
   post() {
@@ -13,6 +19,7 @@ class WriteReview {
       this.done({
         rating: this.rating,
         description: this.review,
+        id: this.id,
       });
     }
   }
@@ -31,6 +38,7 @@ export default angular.module('writeReview', [StarRatingPicker.name])
       // & One way outgoing behaviour (like ng-click)
       done: '=',
       heading: '@',
+      initial: '=',
     },
     bindToController: true,
     controller: WriteReview ,

@@ -30,6 +30,11 @@ class PlaceDetail {
       this.gourmet.createReview(this.id, review)
         .then(() => this.updatePlace());
     };
+
+    this.editReview = (review) => {
+      this.gourmet.editReview(this.id, review)
+        .then(() => this.updatePlace());
+    };
   }
 
   deleteReview(reviewId, $event) {

@@ -37,60 +37,63 @@ place-detail > div {
             padding-top: 16px;
             max-width: 700px;
 
-            > md-divider {
-              margin-top: 16px;
-            }
+            > div {
 
-            > div > p {
-              margin-top: 0;
-            }
-
-            .md-button {
-              margin-left: 8px;
-              padding: 0;
-              height: 24px;
-
-              span {
-                box-sizing: border-box;
-                padding: 0;
-                max-width: 0;
-                overflow: hidden;
-                cursor: pointer;
-
-                transition: padding .3s, max-width .3s;
+              > md-divider {
+                margin-top: 16px;
               }
 
-              &:hover {
+              > div > p {
+                margin-top: 0;
+              }
+
+              .md-button {
+                margin-left: 8px;
+                padding: 0;
+                height: 24px;
+
                 span {
-                  padding: 0 8px;
-                  max-width: 70px;
+                  box-sizing: border-box;
+                  padding: 0;
+                  max-width: 0;
+                  overflow: hidden;
+                  cursor: pointer;
+
+                  transition: padding .3s, max-width .3s;
+                }
+
+                &:hover {
+                  span {
+                    padding: 0 8px;
+                    max-width: 70px;
+                  }
                 }
               }
-            }
 
-            star-rating {
-              padding-left: 16px;
-            }
-
-            a {
-              color: rgba(255, 255, 255, 0.87);
-              border-bottom: 1px solid transparent;
-
-              text-decoration: none;
-
-              transition: color 0.5s, border-bottom 0.5s;
-
-              &:focus {
-                color: rgb(255, 64, 129);
-
-                border-bottom: 1px solid currentColor;
-                transition: color 0.3s, border-bottom 0.3s;
+              star-rating {
+                padding-left: 16px;
               }
-            }
 
-            span {
-              cursor: default;
-              user-select: none;
+              a {
+                color: rgba(255, 255, 255, 0.87);
+                border-bottom: 1px solid transparent;
+
+                text-decoration: none;
+
+                transition: color 0.5s, border-bottom 0.5s;
+
+                &:focus {
+                  color: rgb(255, 64, 129);
+
+                  border-bottom: 1px solid currentColor;
+                  transition: color 0.3s, border-bottom 0.3s;
+                }
+              }
+
+              span {
+                cursor: default;
+                user-select: none;
+              }
             }
 
             &:hover a {

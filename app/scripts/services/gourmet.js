@@ -66,6 +66,10 @@ class Gourmet {
     return this._req('DELETE', `/places/${placeId}/reviews/${reviewId}`);
   }
 
+  editReview(placeId, review) {
+    return this._req('PUT', `/places/${placeId}/reviews/${review.id}`, review);
+  }
+
   signIn(email, password) {
     this._auth = {email, password};
 

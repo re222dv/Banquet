@@ -1,11 +1,17 @@
 write-review {
   display: block;
 
+  h3.title {
+    margin-top: 0;
+  }
+
   .post {
     padding: 16px;
   }
 
   md-input-container.md-default-theme {
+    padding-bottom: 11px;
+
     &.md-input-focused > label,
     &.md-input-has-value > label {
       opacity: 0;
