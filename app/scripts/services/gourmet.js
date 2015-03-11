@@ -33,6 +33,12 @@ class Gourmet {
     return this._get('/places', null, TIME.ONE_MINUTE);
   }
 
+  /**
+   * Gets the latest review by getting the latest changed places and
+   * then getting there latest reviews
+   *
+   * @returns {Rx.Observable}
+   */
   latestReviews() {
     return this.allPlaces()
       .flatMap(page => page.items)

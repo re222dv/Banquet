@@ -9,11 +9,13 @@
 
       <div layout="row">
         <span flex hero-id="review-{{review.id}}-user">{{review.user.name}}</span>
-        <span class="caption" hero-id="review-{{review.id}}-time">{{review.updated_at | timeAgo}}</span>
+        <span class="caption" hero-id="review-{{review.id}}-time">
+          {{review.updated_at | timeAgo}}
+        </span>
       </div>
       <md-toolbar layout="row" layout-align="start center" class="md-bg-primary">
         <h2 class="headline" hero-id="name" flex>{{review.place.name}}</h2>
-        <star-rating hero-id="rating" rating="review.place.rating"></star-rating>
+        <star-rating hero-id="rating" rating="review.place.rating" big></star-rating>
       </md-toolbar>
     </md-card>
   </a>
