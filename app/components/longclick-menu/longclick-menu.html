@@ -1,0 +1,6 @@
+<div class="backdrop animate-fade" ng-if="ctrl.show" ng-click="ctrl.show = false"></div>
+<div class="menu" ng-if="ctrl.show">
+  <md-content ng-click="ctrl.show = false">
+    <ng-transclude></ng-transclude>
+  </md-content>
+</div>

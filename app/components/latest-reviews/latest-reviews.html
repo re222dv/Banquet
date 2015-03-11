@@ -1,5 +1,5 @@
 <div>
-  <a ng-repeat="review in ctrl.reviews track by review.id | orderBy: '-timestamp'"
+  <a ng-repeat="review in ctrl.reviews | orderBy: '-timestamp' track by review.id"
      class="animate-list" ui-sref="place({id: review.place_id})">
     <md-card hero-on-click="review-{{review.id}}">
       <div layout="row">

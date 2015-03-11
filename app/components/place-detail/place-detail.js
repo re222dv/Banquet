@@ -1,6 +1,7 @@
 'use strict';
 
 import FabHeroTransition from '../fab-hero-transition/fab-hero-transition.js';
+import LongclickMenu from '../longclick-menu/longclick-menu.js';
 import StarRating from '../star-rating/star-rating.js';
 import WriteReview from '../write-review/write-review.js';
 
@@ -62,7 +63,8 @@ class PlaceDetail {
 }
 
 export default angular.module('placeDetail', [
-  'ngMaterial', 'yaru22.angular-timeago', FabHeroTransition.name, StarRating.name, WriteReview.name
+  'ngMaterial', 'yaru22.angular-timeago',
+  FabHeroTransition.name, LongclickMenu.name, StarRating.name, WriteReview.name
 ])
 	.directive('placeDetail', () => ({
     templateUrl: 'components/place-detail/place-detail.html',

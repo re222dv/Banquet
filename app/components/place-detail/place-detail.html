@@ -29,12 +29,12 @@
           <li class="new" ng-if="ctrl.newReview">
             <write-review done="ctrl.createReview" heading="Write Review"></write-review>
           </li>
-          <li class="insert-list-animation" ng-repeat="review in ctrl.place.reviews">
+          <li class="insert-list-animation" ng-repeat="review in ctrl.place.reviews" relative>
             <write-review done="ctrl.editReview" heading="Edit Review" initial="review" ng-if="review.edit"></write-review>
             <div ng-if="!review.edit">
               <div layout="row">
                 <p flex hero-id="review-{{review.id}}-description" class="hero">{{review.description}}</p>
-                <div layout="row" class="animate-fade"
+                <div layout="row" class="animate-fade" hide-sm
                      ng-if="review.user.name == ctrl.gourmet.signedIn">
                   <md-button layout="row" class="md-accent" ng-click="review.edit = true">
                     <span>Edit</span>
@@ -55,6 +55,18 @@
               </div>
 
               <md-divider></md-divider>
+
+              <longclick-menu ng-if="review.user.name == ctrl.gourmet.signedIn">
+                <md-button layout="row" ng-click="review.edit = true" layout-align="center center">
+                  <paper-icon icon="image:edit"></paper-icon>
+                  <span>Edit</span>
+                </md-button>
+                <md-button layout="row" ng-click="ctrl.deleteReview(review.id, $event)"
+                           layout-align="center center">
+                  <paper-icon icon="action:delete"></paper-icon>
+                  <span>Delete</span>
+                </md-button>
+              </longclick-menu>
             </div>
           </li>
         </ul>

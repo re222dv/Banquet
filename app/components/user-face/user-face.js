@@ -1,7 +1,7 @@
 'use strict';
 
 import Gourmet from '../../scripts/services/gourmet.js';
-import Storage from '../../scripts/services/storage.js';
+import {default as Storage, Lifetime} from '../../scripts/services/storage.js';
 
 class UserFace {
 	constructor($mdDialog, gourmet, storage, $scope) {
@@ -23,7 +23,7 @@ class UserFace {
   }
 
   signOut() {
-    this.storage.set('auth', {});
+    this.storage.set('auth', {}, Lifetime.Session);
   }
 
   dialog($event) {

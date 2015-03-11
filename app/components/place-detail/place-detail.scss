@@ -2,6 +2,10 @@ place-detail > div {
   height: 100vh;
   overflow: hidden;
 
+  [relative] {
+    position: relative;
+  }
+
   > md-toolbar {
     padding: 16px 16px 8px;
 
@@ -47,12 +51,12 @@ place-detail > div {
                 margin-top: 0;
               }
 
-              .md-button {
+              > div > div > .md-button {
                 margin-left: 8px;
                 padding: 0;
                 height: 24px;
 
-                span {
+                > span {
                   box-sizing: border-box;
                   padding: 0;
                   max-width: 0;
@@ -63,7 +67,7 @@ place-detail > div {
                 }
 
                 &:hover {
-                  span {
+                  > span {
                     padding: 0 8px;
                     max-width: 70px;
                   }
