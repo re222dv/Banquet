@@ -67,7 +67,12 @@ class Gourmet {
    * @returns {Rx.Observable}
    */
   placesNear(lat, long, query = '') {
-    let path =`/places?query=${query}&location=${lat},${long}`;
+    let path;
+    if (!lat || !long) {
+      path =`/places?query=${query}`;
+    } else {
+      path =`/places?query=${query}&location=${lat},${long}`;
+    }
     if (query.length) {
       return this.rx.fromPromise(this._req('GET', path));
     }

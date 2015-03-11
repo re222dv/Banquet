@@ -1,6 +1,6 @@
 'use strict';
 
-export var Lifetime = Object.freeze({
+export const Lifetime = Object.freeze({
   /**
    * A value that lives until the User manually clears it
    */

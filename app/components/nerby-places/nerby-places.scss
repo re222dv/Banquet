@@ -1,10 +1,18 @@
 nerby-places {
+  > paper-icon {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    z-index: 6;
+  }
+
   > md-content {
     padding-top: 48px;
 
     > md-autocomplete {
       position: fixed;
       top: 0;
+      padding-left: 32px;
 
       width: 100%;
     }
@@ -31,6 +39,13 @@ nerby-places {
       & + a > md-card {
         margin-top: 0;
       }
+    }
+  }
+
+  @media (max-width: 960px) {
+    paper-icon {
+      left: auto;
+      right: 16px;
     }
   }
 }

@@ -162,9 +162,3 @@ md-input-container.md-default-theme {
     text-decoration: none;
   }
 }
-
-@media (max-width: 960px) {
-  md-autocomplete > md-autocomplete-wrap > input {
-    padding-left: 40px;
-  }
-}
