@@ -1,5 +1,5 @@
 <div layout="column">
-  <md-toolbar class="hero md-bg-primary md-tall" layout="column">
+  <md-toolbar class="md-tall" layout="column">
     <span flex></span>
     <div layout="row" layout-align="start center">
       <h1 class="hero display-1" hero-id="name" flex>{{ctrl.place.name}}</h1>
@@ -46,7 +46,8 @@
                     <paper-icon icon="action:delete"></paper-icon>
                   </md-button>
                 </div>
-                <star-rating rating="review.rating" hero-id="review-{{review.id}}-rating" class="hero"></star-rating>
+                <star-rating rating="review.rating" hero-id="review-{{review.id}}-rating"
+                             class="hero padding"></star-rating>
               </div>
 
               <div layout="row">

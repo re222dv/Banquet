@@ -1,10 +1,6 @@
-place-detail > div {
+user-detail > div {
   height: 100vh;
   overflow: hidden;
-
-  [relative] {
-    position: relative;
-  }
 
   > md-toolbar {
     padding: 16px 16px 8px;
@@ -12,20 +8,12 @@ place-detail > div {
     h2.display-1 {
       margin: 0;
     }
-
-    [hero-id="rating"] > span {
-      padding-left: 8px;
-    }
   }
 
   > md-content {
     > .reviews {
       > .headline {
         margin-top: 48px;
-      }
-
-      paper-icon[icon="content:create"] {
-        margin-right: 8px;
       }
 
       > md-content {
@@ -49,29 +37,6 @@ place-detail > div {
 
               > div > p {
                 margin-top: 0;
-              }
-
-              > div > div > .md-button {
-                margin-left: 8px;
-                padding: 0;
-                height: 24px;
-
-                > span {
-                  box-sizing: border-box;
-                  padding: 0;
-                  max-width: 0;
-                  overflow: hidden;
-                  cursor: pointer;
-
-                  transition: padding .3s, max-width .3s;
-                }
-
-                &:hover {
-                  > span {
-                    padding: 0 8px;
-                    max-width: 70px;
-                  }
-                }
               }
 
               a {
@@ -109,23 +74,6 @@ place-detail > div {
 
             &:last-of-type md-divider {
               display: none;
-            }
-
-            &.new {
-              margin-bottom: -16px;
-
-              &.ng-enter {
-                max-height: 0;
-                opacity: 0;
-                transform: scaleY(0);
-                transition: max-height .5s linear, opacity .5s linear, transform .5s linear;
-
-                &.ng-enter-active {
-                  max-height: 106px;
-                  opacity: 1;
-                  transform: scaleY(1);
-                }
-              }
             }
           }
         }

@@ -1,19 +1,18 @@
 'use strict';
-/*jshint esnext: true */
+
 import MenuItem from './components/menu-item/menu-item.js';
 import LatestReviews from './components/latest-reviews/latest-reviews.js';
 import NerbyPlaces from './components/nerby-places/nerby-places.js';
 import PlaceDetail from './components/place-detail/place-detail.js';
 import PaperLayout from './components/paper-layout/paper-layout.js';
 import PlaceMap from './components/place-map/place-map.js';
+import UserDetail from './components/user-detail/user-detail.js';
 
-// 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'ngMaterial',
 angular.module('banquet', [
   'ui.router', 'ngMaterial', 'alAngularHero',
   MenuItem.name, LatestReviews.name, NerbyPlaces.name, PlaceDetail.name, PaperLayout.name,
-  PlaceMap.name
+  PlaceMap.name, UserDetail.name,
 ])
-  //.controller('MainCtrl', MainCtrl)
   .config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('teal')
@@ -30,7 +29,10 @@ angular.module('banquet', [
       })
       .state('user', {
         url: '/user/:id',
-        template: '<user-detail layout-fill></user-detail>'
+        template: '<user-detail id="{{id}}" layout-fill></user-detail>',
+        controller: function ($scope, $stateParams) {
+          $scope.id = $stateParams.id;
+        }
       })
       .state('reviews', {
         url: '/reviews',

@@ -103,6 +103,10 @@ class Gourmet {
     return this._req('PUT', `/places/${placeId}/reviews/${review.id}`, review);
   }
 
+  user(id) {
+    return this._get(`/users/${id}`);
+  }
+
   signIn(email, password) {
     this._auth = {email, password};
 
