@@ -74,7 +74,7 @@ class Gourmet {
       path =`/places?query=${query}&location=${lat},${long}`;
     }
     if (query.length) {
-      return this.rx.fromPromise(this._req('GET', path));
+      return this.rx.Observable.fromPromise(this._req('GET', path));
     }
     return this._get(path, 'nerbyPlaces', TIME.ONE_MINUTE);
   }
