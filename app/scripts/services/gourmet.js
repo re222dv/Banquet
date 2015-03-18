@@ -19,7 +19,7 @@ class Gourmet {
     this.cache = cache;
     this.storage = storage;
 
-    this.url = 'http://localhost:3000/v1';
+    this.url = 'http://muvi.eneman.eu:3000/v1';
     this.key = 'b78d6ee724ccc781c8db08d37a375013';
 
     storage.observe('auth', {}).subscribe(auth => this._auth = auth);
